@@ -1,13 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import TopBar from '../components/tab-bar/TopBar';
 
 const Home = () => {
     return (
-        <View>
-            <Text h4Style={styles.testStyle} h4={true}>
-                Hello World!
-            </Text>
+        <View style={styles.root}>
+            <TopBar />
         </View>
     );
 };
@@ -15,8 +13,7 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-    testStyle: {
-        fontFamily: 'SFRounded-Ultralight',
-        fontWeight: 'normal',
+    root: {
+        flex: 1,
     },
 });
