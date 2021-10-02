@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 import { ThemeProvider } from 'react-native-elements';
 import theme from './src/theme/theme';
+import SignIn from './src/screens/SignIn';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ const App = () => {
             <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="SignIn" component={SignIn} />
                 </Stack.Navigator>
             </NavigationContainer>
         </ThemeProvider>
