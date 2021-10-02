@@ -19,6 +19,7 @@ const TabBar = () => {
                     name={x.name}
                     component={x.component}
                     options={{
+                        title: x.title,
                         tabBarLabelStyle: styles.label,
                         tabBarIcon: () => <Image style={styles.icon} source={x.iconSource} />,
                     }}

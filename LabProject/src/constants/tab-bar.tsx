@@ -4,6 +4,7 @@ import Accounts from '../screens/Accounts';
 import Giving from '../screens/Giving';
 import Cards from '../screens/Cards';
 import Payments from '../screens/Payments';
+import Routes from './routes';
 
 export const TabBarLabels = {
     home: 'Home',
@@ -15,27 +16,32 @@ export const TabBarLabels = {
 
 export const TabBarItems: ITabBarType[] = [
     {
-        name: TabBarLabels.home,
+        name: Routes.home,
+        title: TabBarLabels.home,
         component: Home,
         iconSource: require('../../assets/icons/home-icon.png'),
     },
     {
-        name: TabBarLabels.accounts,
+        name: Routes.accounts,
+        title: TabBarLabels.accounts,
         component: Accounts,
         iconSource: require('../../assets/icons/accounts-icon.png'),
     },
     {
-        name: TabBarLabels.giving,
+        name: Routes.giving,
+        title: TabBarLabels.giving,
         component: Giving,
         iconSource: require('../../assets/icons/giving-icon.png'),
     },
     {
-        name: TabBarLabels.payments,
+        name: Routes.payments,
+        title: TabBarLabels.payments,
         component: Payments,
         iconSource: require('../../assets/icons/payment-icon.png'),
     },
     {
-        name: TabBarLabels.cards,
+        name: Routes.cards,
+        title: TabBarLabels.cards,
         component: Cards,
         iconSource: require('../../assets/icons/credit-cards-icon.png'),
     },

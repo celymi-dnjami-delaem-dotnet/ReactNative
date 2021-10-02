@@ -3,6 +3,7 @@ import { ImageSourcePropType } from 'react-native';
 
 export interface ITabBarType {
     name: string;
+    title: string;
     component: React.FunctionComponent;
     iconSource: ImageSourcePropType;
 }

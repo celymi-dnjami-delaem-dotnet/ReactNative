@@ -1,16 +1,32 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AccountOverlay from './AccountOverlay';
 
 Icon.loadFont();
 
-const TopBar = () => {
+export interface ITopBarProps {
+    accountOverlayVisible: boolean;
+    toggleAccountOverlay: () => void;
+    onPressSignOut: () => void;
+}
+
+const TopBar = (props: ITopBarProps) => {
+    const { accountOverlayVisible, toggleAccountOverlay, onPressSignOut } = props;
+
     return (
-        <View style={styles.root}>
-            <Icon style={styles.icon} name="menu-outline" />
-            <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
-            <Icon style={styles.icon} name="person-circle-outline" />
-        </View>
+        <React.Fragment>
+            <AccountOverlay
+                accountOverlayVisible={accountOverlayVisible}
+                toggleAccountOverlay={toggleAccountOverlay}
+                onPressSignOut={onPressSignOut}
+            />
+            <View style={styles.root}>
+                <Icon style={styles.icon} name="menu-outline" />
+                <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
+                <Icon onPress={toggleAccountOverlay} style={styles.icon} name="person-circle-outline" />
+            </View>
+        </React.Fragment>
     );
 };
 

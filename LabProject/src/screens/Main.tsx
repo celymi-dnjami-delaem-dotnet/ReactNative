@@ -1,12 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import TopBar from '../components/top-bar/TopBar';
 import TabBar from '../components/tab-bar/TabBar';
+import TopBarContainer from '../components/top-bar/TopBarContainer';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const Main = () => {
+export interface IMainProps extends NativeStackScreenProps<never> {}
+
+const Main = (props: IMainProps) => {
     return (
         <View style={styles.root}>
-            <TopBar />
+            <TopBarContainer {...props} />
+
             <TabBar />
         </View>
     );

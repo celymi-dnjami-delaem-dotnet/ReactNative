@@ -1,8 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Checking = () => {
-    return <View>Checking screen!</View>;
+    return (
+        <View>
+            <Text>Checking screen!</Text>
+        </View>
+    );
 };
 
 export default Checking;

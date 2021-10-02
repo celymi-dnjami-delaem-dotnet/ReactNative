@@ -1,8 +1,22 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Button, View } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Routes from '../constants/routes';
 
-const SignIn = () => {
-    return <View>SignIn screen!</View>;
+export interface ISignInProps extends NativeStackScreenProps<never> {}
+
+const SignIn = (props: ISignInProps) => {
+    const { navigation } = props;
+
+    const onPressSignIn = () => {
+        navigation.reset({ index: 0, routes: [{ name: Routes.main }] });
+    };
+
+    return (
+        <View>
+            <Button title="SignIn" onPress={onPressSignIn} />
+        </View>
+    );
 };
 
 export default SignIn;
