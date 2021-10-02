@@ -1,19 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import TopBar from '../components/tab-bar/TopBar';
+import { Text, View } from 'react-native';
 
 const Home = () => {
     return (
-        <View style={styles.root}>
-            <TopBar />
+        <View>
+            <Text>Home screen!</Text>
         </View>
     );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-    },
-});

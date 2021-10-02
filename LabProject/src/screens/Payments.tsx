@@ -1,8 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Payments = () => {
-    return <View>Payments screen!</View>;
+    return (
+        <View>
+            <Text>Payments screen!</Text>
+        </View>
+    );
 };
 
 export default Payments;

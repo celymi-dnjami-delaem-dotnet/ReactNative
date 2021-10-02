@@ -1,8 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Giving = () => {
-    return <View>Giving screen!</View>;
+    return (
+        <View>
+            <Text>Giving screen!</Text>
+        </View>
+    );
 };
 
 export default Giving;

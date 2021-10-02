@@ -1,8 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Cards = () => {
-    return <View>Cards screen!</View>;
+    return (
+        <View>
+            <Text>Cards screen!</Text>
+        </View>
+    );
 };
 
 export default Cards;
