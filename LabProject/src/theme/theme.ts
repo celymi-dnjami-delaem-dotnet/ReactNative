@@ -1,12 +1,11 @@
 const theme = {
-    Button: {
-        raised: true,
-        titleStyle: {
-            color: 'red',
-        },
-        buttonStyle: {
-            backgroundColor: 'pink',
-        },
+    button: {
+        primary: {},
+        secondary: {},
+    },
+    text: {
+        normal: {},
+        bold: {},
     },
 };
 
