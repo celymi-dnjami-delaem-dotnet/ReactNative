@@ -3,7 +3,7 @@ import TopBar, { ITopBarProps } from './TopBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Routes from '../../constants/routes';
 
-export interface ITopBarContainerProps extends NativeStackScreenProps<never> {}
+export interface ITopBarContainerProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
 const TopBarContainer = (props: ITopBarContainerProps) => {
     const { navigation } = props;

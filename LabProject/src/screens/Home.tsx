@@ -1,10 +1,15 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Button, View } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Routes from '../constants/routes';
 
-const Home = () => {
+export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
+
+const Home = ({ navigation }: IHomeScreenProps) => {
     return (
         <View>
-            <Text>Home screen!</Text>
+            <Button title="Checking" onPress={() => navigation.navigate(Routes.checking as any)} />
+            <Button title="Saving" onPress={() => navigation.navigate(Routes.saving as any)} />
         </View>
     );
 };

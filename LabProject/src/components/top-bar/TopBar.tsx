@@ -22,9 +22,11 @@ const TopBar = (props: ITopBarProps) => {
                 onPressSignOut={onPressSignOut}
             />
             <View style={styles.root}>
-                <Icon style={styles.icon} name="menu-outline" />
-                <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
-                <Icon onPress={toggleAccountOverlay} style={styles.icon} name="person-circle-outline" />
+                <View style={styles.headerContainer}>
+                    <Icon style={styles.icon} name="menu-outline" />
+                    <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
+                    <Icon onPress={toggleAccountOverlay} style={styles.icon} name="person-circle-outline" />
+                </View>
             </View>
         </React.Fragment>
     );
@@ -32,15 +34,19 @@ const TopBar = (props: ITopBarProps) => {
 
 const styles = StyleSheet.create({
     root: {
-        width: '100%',
-        height: 50,
+        height: 90,
         display: 'flex',
         paddingLeft: 10,
         paddingRight: 10,
+        justifyContent: 'flex-end',
+        backgroundColor: 'pink',
+    },
+    headerContainer: {
+        width: '100%',
+        display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'pink',
     },
     logo: {
         width: 200,
