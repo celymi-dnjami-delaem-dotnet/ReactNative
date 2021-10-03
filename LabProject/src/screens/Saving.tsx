@@ -1,12 +1,18 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const Saving = () => {
     return (
-        <View>
+        <View style={styles.root}>
             <Text>Saving screen!</Text>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+    },
+});
 
 export default Saving;

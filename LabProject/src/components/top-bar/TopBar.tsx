@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AccountOverlay from './AccountOverlay';
 
@@ -7,12 +7,14 @@ Icon.loadFont();
 
 export interface ITopBarProps {
     accountOverlayVisible: boolean;
+    pageName?: string;
+    title?: string;
     toggleAccountOverlay: () => void;
     onPressSignOut: () => void;
 }
 
 const TopBar = (props: ITopBarProps) => {
-    const { accountOverlayVisible, toggleAccountOverlay, onPressSignOut } = props;
+    const { pageName, title, accountOverlayVisible, toggleAccountOverlay, onPressSignOut } = props;
 
     return (
         <React.Fragment>
@@ -24,7 +26,16 @@ const TopBar = (props: ITopBarProps) => {
             <View style={styles.root}>
                 <View style={styles.headerContainer}>
                     <Icon style={styles.icon} name="menu-outline" />
-                    <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
+
+                    {pageName && title ? (
+                        <View style={styles.pageDescriptionContainer}>
+                            <Text style={styles.pageName}>{pageName}</Text>
+                            <Text style={styles.title}>{title}</Text>
+                        </View>
+                    ) : (
+                        <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
+                    )}
+
                     <Icon onPress={toggleAccountOverlay} style={styles.icon} name="person-circle-outline" />
                 </View>
             </View>
@@ -39,7 +50,8 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         justifyContent: 'flex-end',
-        backgroundColor: 'pink',
+        backgroundColor: '#e75480',
+        paddingBottom: 5,
     },
     headerContainer: {
         width: '100%',
@@ -49,12 +61,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        width: 200,
-        height: 50,
+        width: 180,
+        height: 30,
     },
     icon: {
         color: '#FFF',
         fontSize: 32,
+    },
+    pageDescriptionContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    pageName: {
+        fontSize: 18,
+        color: '#FFF',
+    },
+    title: {
+        fontSize: 12,
+        color: '#FFF',
     },
 });
 

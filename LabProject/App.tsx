@@ -31,7 +31,12 @@ const App = () => {
                         component={Saving}
                         options={{
                             header: (props: NativeStackHeaderProps) => (
-                                <TopBarContainer route={props.route} navigation={props.navigation} />
+                                <TopBarContainer
+                                    route={props.route}
+                                    navigation={props.navigation}
+                                    pageName={Routes.saving}
+                                    title="By a house"
+                                />
                             ),
                         }}
                     />
@@ -40,7 +45,12 @@ const App = () => {
                         component={Checking}
                         options={{
                             header: (props: NativeStackHeaderProps) => (
-                                <TopBarContainer route={props.route} navigation={props.navigation} />
+                                <TopBarContainer
+                                    route={props.route}
+                                    navigation={props.navigation}
+                                    pageName={Routes.checking}
+                                    title="Main Account"
+                                />
                             ),
                         }}
                     />

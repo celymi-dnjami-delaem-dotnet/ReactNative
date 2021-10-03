@@ -3,10 +3,13 @@ import TopBar, { ITopBarProps } from './TopBar';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Routes from '../../constants/routes';
 
-export interface ITopBarContainerProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
+export interface ITopBarContainerProps extends NativeStackScreenProps<Record<string, object | undefined>> {
+    pageName?: string;
+    title?: string;
+}
 
 const TopBarContainer = (props: ITopBarContainerProps) => {
-    const { navigation } = props;
+    const { navigation, pageName, title } = props;
 
     const [accountOverlayVisible, setAccountOverlayVisible] = useState(false);
 
@@ -20,6 +23,8 @@ const TopBarContainer = (props: ITopBarContainerProps) => {
 
     const topBarProps: ITopBarProps = {
         accountOverlayVisible,
+        pageName,
+        title,
         toggleAccountOverlay,
         onPressSignOut,
     };
