@@ -6,10 +6,30 @@ import Routes from '../constants/routes';
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
 const Home = ({ navigation }: IHomeScreenProps) => {
+    const randomItem = Math.floor(Math.random() * 100);
+
     return (
         <View>
-            <Button title="Checking" onPress={() => navigation.navigate(Routes.checking as any)} />
-            <Button title="Saving" onPress={() => navigation.navigate(Routes.saving as any)} />
+            <Button
+                title="Checking"
+                onPress={() =>
+                    // @ts-ignore
+                    navigation.navigate(Routes.checking, {
+                        pageName: Routes.checking,
+                        title: `By a house ${randomItem}`,
+                    })
+                }
+            />
+            <Button
+                title="Saving"
+                onPress={() =>
+                    // @ts-ignore
+                    navigation.navigate(Routes.saving, {
+                        pageName: Routes.saving,
+                        title: `Main Account ${randomItem}`,
+                    })
+                }
+            />
         </View>
     );
 };

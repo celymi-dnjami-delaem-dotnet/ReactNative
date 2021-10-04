@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { NavigationContainer, Route } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Main from './src/screens/Main';
 import { ThemeProvider } from 'react-native-elements';
 import theme from './src/theme/theme';
@@ -8,7 +8,10 @@ import SignIn from './src/screens/SignIn';
 import Routes from './src/constants/routes';
 import Saving from './src/screens/Saving';
 import Checking from './src/screens/Checking';
-import TopBarContainer from './src/components/top-bar/TopBarContainer';
+import HeaderLeft from './src/components/top-bar/HeaderLeft';
+import HeaderRight from './src/components/top-bar/HeaderRight';
+import HeaderTitle, { IHeaderTitleRouteArgs } from './src/components/top-bar/HeaderTitle';
+import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,39 +23,47 @@ const App = () => {
                     <Stack.Screen
                         name={Routes.main}
                         component={Main}
-                        options={{
-                            header: (props: NativeStackHeaderProps) => (
-                                <TopBarContainer route={props.route} navigation={props.navigation} />
+                        options={({ navigation, route }) => ({
+                            headerStyle: styles.header,
+                            headerLeft: () => <HeaderLeft />,
+                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerTitle: () => (
+                                <HeaderTitle
+                                    navigation={navigation}
+                                    route={route as Route<string, IHeaderTitleRouteArgs>}
+                                />
                             ),
-                        }}
+                        })}
                     />
                     <Stack.Screen
                         name={Routes.saving}
                         component={Saving}
-                        options={{
-                            header: (props: NativeStackHeaderProps) => (
-                                <TopBarContainer
-                                    route={props.route}
-                                    navigation={props.navigation}
-                                    pageName={Routes.saving}
-                                    title="By a house"
+                        options={({ navigation, route }) => ({
+                            headerStyle: styles.header,
+                            headerLeft: () => <HeaderLeft />,
+                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerTitle: () => (
+                                <HeaderTitle
+                                    navigation={navigation}
+                                    route={route as Route<string, IHeaderTitleRouteArgs>}
                                 />
                             ),
-                        }}
+                        })}
                     />
                     <Stack.Screen
                         name={Routes.checking}
                         component={Checking}
-                        options={{
-                            header: (props: NativeStackHeaderProps) => (
-                                <TopBarContainer
-                                    route={props.route}
-                                    navigation={props.navigation}
-                                    pageName={Routes.checking}
-                                    title="Main Account"
+                        options={({ navigation, route }) => ({
+                            headerStyle: styles.header,
+                            headerLeft: () => <HeaderLeft />,
+                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerTitle: () => (
+                                <HeaderTitle
+                                    navigation={navigation}
+                                    route={route as Route<string, IHeaderTitleRouteArgs>}
                                 />
                             ),
-                        }}
+                        })}
                     />
 
                     <Stack.Screen name={Routes.signIn} component={SignIn} />
@@ -61,5 +72,11 @@ const App = () => {
         </ThemeProvider>
     );
 };
+
+const styles = StyleSheet.create({
+    header: {
+        backgroundColor: theme.colors?.primary,
+    },
+});
 
 export default App;

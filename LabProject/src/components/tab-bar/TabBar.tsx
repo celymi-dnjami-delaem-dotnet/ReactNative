@@ -15,31 +15,31 @@ const TabBarItems: ITabBarType[] = [
         name: Routes.home,
         title: 'Home',
         component: Home,
-        iconSource: require('../../assets/icons/home-icon.png'),
+        iconSource: require('../../../assets/icons/home-icon.png'),
     },
     {
         name: Routes.accounts,
         title: 'Accounts',
         component: Accounts,
-        iconSource: require('../../assets/icons/accounts-icon.png'),
+        iconSource: require('../../../assets/icons/accounts-icon.png'),
     },
     {
         name: Routes.giving,
         title: 'Giving',
         component: Giving,
-        iconSource: require('../../assets/icons/giving-icon.png'),
+        iconSource: require('../../../assets/icons/giving-icon.png'),
     },
     {
         name: Routes.payments,
         title: 'Payments',
         component: Payments,
-        iconSource: require('../../assets/icons/payment-icon.png'),
+        iconSource: require('../../../assets/icons/payment-icon.png'),
     },
     {
         name: Routes.cards,
         title: 'Cards',
         component: Cards,
-        iconSource: require('../../assets/icons/credit-cards-icon.png'),
+        iconSource: require('../../../assets/icons/credit-cards-icon.png'),
     },
 ];
 
