@@ -1,11 +1,17 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, Text } from 'react-native';
 import { TabBarItems } from '../../constants/tab-bar';
+import { useTheme } from 'react-native-elements';
 
 const Tab = createBottomTabNavigator();
 
 const TabBar = () => {
+    const { theme } = useTheme();
+
+    const getFontColor = (focused: boolean): string | undefined =>
+        focused ? theme.colors?.primary : theme.colors?.black;
+
     return (
         <Tab.Navigator
             screenOptions={{
@@ -19,9 +25,12 @@ const TabBar = () => {
                     name={x.name}
                     component={x.component}
                     options={{
-                        title: x.title,
-                        tabBarLabelStyle: styles.label,
-                        tabBarIcon: () => <Image style={styles.icon} source={x.iconSource} />,
+                        tabBarLabel: ({ focused }) => (
+                            <Text style={[styles.label, { color: getFontColor(focused) }]}>{x.title}</Text>
+                        ),
+                        tabBarIcon: ({ focused }) => (
+                            <Image style={[styles.icon, { tintColor: getFontColor(focused) }]} source={x.iconSource} />
+                        ),
                     }}
                 />
             ))}
