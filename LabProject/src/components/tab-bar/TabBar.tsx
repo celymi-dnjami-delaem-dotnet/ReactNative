@@ -1,8 +1,47 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, Text } from 'react-native';
-import { TabBarItems } from '../../constants/tab-bar';
 import { useTheme } from 'react-native-elements';
+import { ITabBarType } from '../../types/tab-bar';
+import Routes from '../../constants/routes';
+import Home from '../../screens/Home';
+import Accounts from '../../screens/Accounts';
+import Giving from '../../screens/Giving';
+import Payments from '../../screens/Payments';
+import Cards from '../../screens/Cards';
+
+const TabBarItems: ITabBarType[] = [
+    {
+        name: Routes.home,
+        title: 'Home',
+        component: Home,
+        iconSource: require('../../assets/icons/home-icon.png'),
+    },
+    {
+        name: Routes.accounts,
+        title: 'Accounts',
+        component: Accounts,
+        iconSource: require('../../assets/icons/accounts-icon.png'),
+    },
+    {
+        name: Routes.giving,
+        title: 'Giving',
+        component: Giving,
+        iconSource: require('../../assets/icons/giving-icon.png'),
+    },
+    {
+        name: Routes.payments,
+        title: 'Payments',
+        component: Payments,
+        iconSource: require('../../assets/icons/payment-icon.png'),
+    },
+    {
+        name: Routes.cards,
+        title: 'Cards',
+        component: Cards,
+        iconSource: require('../../assets/icons/credit-cards-icon.png'),
+    },
+];
 
 const Tab = createBottomTabNavigator();
 
