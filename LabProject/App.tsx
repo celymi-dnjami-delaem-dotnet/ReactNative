@@ -23,14 +23,14 @@ const App = () => {
                     <Stack.Screen
                         name={Routes.main}
                         component={Main}
-                        options={({ navigation, route }) => ({
+                        options={navProps => ({
                             headerStyle: styles.header,
-                            headerLeft: () => <HeaderLeft />,
-                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                            headerRight: () => <HeaderRight {...navProps} />,
                             headerTitle: () => (
                                 <HeaderTitle
-                                    navigation={navigation}
-                                    route={route as Route<string, IHeaderTitleRouteArgs>}
+                                    {...navProps}
+                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
                                 />
                             ),
                         })}
@@ -38,14 +38,14 @@ const App = () => {
                     <Stack.Screen
                         name={Routes.saving}
                         component={Saving}
-                        options={({ navigation, route }) => ({
+                        options={navProps => ({
                             headerStyle: styles.header,
-                            headerLeft: () => <HeaderLeft />,
-                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                            headerRight: () => <HeaderRight {...navProps} />,
                             headerTitle: () => (
                                 <HeaderTitle
-                                    navigation={navigation}
-                                    route={route as Route<string, IHeaderTitleRouteArgs>}
+                                    {...navProps}
+                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
                                 />
                             ),
                         })}
@@ -53,14 +53,14 @@ const App = () => {
                     <Stack.Screen
                         name={Routes.checking}
                         component={Checking}
-                        options={({ navigation, route }) => ({
+                        options={navProps => ({
                             headerStyle: styles.header,
-                            headerLeft: () => <HeaderLeft />,
-                            headerRight: () => <HeaderRight navigation={navigation} route={route} />,
+                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                            headerRight: () => <HeaderRight {...navProps} />,
                             headerTitle: () => (
                                 <HeaderTitle
-                                    navigation={navigation}
-                                    route={route as Route<string, IHeaderTitleRouteArgs>}
+                                    {...navProps}
+                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
                                 />
                             ),
                         })}
