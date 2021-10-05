@@ -5,7 +5,7 @@ import Routes from '../constants/routes';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
-const Home = ({ navigation }: IHomeScreenProps) => {
+const Home: React.FC<IHomeScreenProps> = ({ navigation }) => {
     const randomItem = Math.floor(Math.random() * 100);
 
     return (

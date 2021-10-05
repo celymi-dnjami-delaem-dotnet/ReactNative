@@ -5,14 +5,11 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export interface IMainProps extends NativeStackScreenProps<never> {}
 
-const Main = () => {
-    return (
-        <View style={styles.root}>
-            <TabBar />
-        </View>
-    );
-};
-
+const Main = () => (
+    <View style={styles.root}>
+        <TabBar />
+    </View>
+);
 export default Main;
 
 const styles = StyleSheet.create({

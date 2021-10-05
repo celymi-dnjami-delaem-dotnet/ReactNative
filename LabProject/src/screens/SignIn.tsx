@@ -5,9 +5,7 @@ import Routes from '../constants/routes';
 
 export interface ISignInProps extends NativeStackScreenProps<never> {}
 
-const SignIn = (props: ISignInProps) => {
-    const { navigation } = props;
-
+const SignIn: React.FC<ISignInProps> = ({ navigation }) => {
     const onPressSignIn = () => {
         navigation.reset({ index: 0, routes: [{ name: Routes.main }] });
     };

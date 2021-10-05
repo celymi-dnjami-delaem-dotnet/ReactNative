@@ -8,7 +8,7 @@ import theme from '../../theme/theme';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
-const HeaderRight = ({ navigation }: IHeaderRightProps) => {
+const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation }) => {
     const [accountOverlayVisible, setAccountOverlayVisible] = useState(false);
 
     const onPressSignOut = () => {

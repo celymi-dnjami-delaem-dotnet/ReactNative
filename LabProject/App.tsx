@@ -15,63 +15,52 @@ import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
-    return (
-        <ThemeProvider theme={theme}>
-            <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen
-                        name={Routes.main}
-                        component={Main}
-                        options={navProps => ({
-                            headerStyle: styles.header,
-                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
-                            headerRight: () => <HeaderRight {...navProps} />,
-                            headerTitle: () => (
-                                <HeaderTitle
-                                    {...navProps}
-                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
-                                />
-                            ),
-                        })}
-                    />
-                    <Stack.Screen
-                        name={Routes.saving}
-                        component={Saving}
-                        options={navProps => ({
-                            headerStyle: styles.header,
-                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
-                            headerRight: () => <HeaderRight {...navProps} />,
-                            headerTitle: () => (
-                                <HeaderTitle
-                                    {...navProps}
-                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
-                                />
-                            ),
-                        })}
-                    />
-                    <Stack.Screen
-                        name={Routes.checking}
-                        component={Checking}
-                        options={navProps => ({
-                            headerStyle: styles.header,
-                            headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
-                            headerRight: () => <HeaderRight {...navProps} />,
-                            headerTitle: () => (
-                                <HeaderTitle
-                                    {...navProps}
-                                    route={navProps.route as Route<string, IHeaderTitleRouteArgs>}
-                                />
-                            ),
-                        })}
-                    />
+const App = () => (
+    <ThemeProvider theme={theme}>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen
+                    name={Routes.main}
+                    component={Main}
+                    options={navProps => ({
+                        headerStyle: styles.header,
+                        headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                        headerRight: () => <HeaderRight {...navProps} />,
+                        headerTitle: () => (
+                            <HeaderTitle {...navProps} route={navProps.route as Route<string, IHeaderTitleRouteArgs>} />
+                        ),
+                    })}
+                />
+                <Stack.Screen
+                    name={Routes.saving}
+                    component={Saving}
+                    options={navProps => ({
+                        headerStyle: styles.header,
+                        headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                        headerRight: () => <HeaderRight {...navProps} />,
+                        headerTitle: () => (
+                            <HeaderTitle {...navProps} route={navProps.route as Route<string, IHeaderTitleRouteArgs>} />
+                        ),
+                    })}
+                />
+                <Stack.Screen
+                    name={Routes.checking}
+                    component={Checking}
+                    options={navProps => ({
+                        headerStyle: styles.header,
+                        headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
+                        headerRight: () => <HeaderRight {...navProps} />,
+                        headerTitle: () => (
+                            <HeaderTitle {...navProps} route={navProps.route as Route<string, IHeaderTitleRouteArgs>} />
+                        ),
+                    })}
+                />
 
-                    <Stack.Screen name={Routes.signIn} component={SignIn} />
-                </Stack.Navigator>
-            </NavigationContainer>
-        </ThemeProvider>
-    );
-};
+                <Stack.Screen name={Routes.signIn} component={SignIn} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    </ThemeProvider>
+);
 
 const styles = StyleSheet.create({
     header: {
