@@ -1,11 +1,10 @@
-const theme = {
-    button: {
-        primary: {},
-        secondary: {},
-    },
-    text: {
-        normal: {},
-        bold: {},
+import { FullTheme } from 'react-native-elements';
+
+const theme: Partial<FullTheme> = {
+    colors: {
+        primary: '#d73374',
+        white: '#FFF',
+        black: '#000',
     },
 };
 
