@@ -16,6 +16,8 @@ export default function authReducer(state = initialState, action: any) {
             return handleSignInSuccess(state, action.payload);
         case AuthActions.SIGN_IN_FAILURE:
             return handleSignInFailure(state);
+        case AuthActions.SIGN_OUT:
+            return handleSignOut();
         default:
             return state;
     }
@@ -38,3 +40,5 @@ const handleSignInFailure = (state: AuthState): AuthState => ({
     ...state,
     isLoading: false,
 });
+
+const handleSignOut = (): AuthState => initialState;

@@ -4,6 +4,7 @@ export const AuthActions = {
     SIGN_IN_REQUEST: 'auth/signInRequest',
     SIGN_IN_SUCCESS: 'auth/signInSuccess',
     SIGN_IN_FAILURE: 'auth/signInFailure',
+    SIGN_OUT: 'auth/signOut',
 };
 
 /*
@@ -28,6 +29,8 @@ export interface ISignInSuccess extends IBaseAction {
 export interface ISignInFailure extends IBaseAction {
     payload: Error;
 }
+
+export interface ISignOut extends IBaseAction {}
 
 /*
     Actions
@@ -54,3 +57,5 @@ export const signInFailure = (error: Error): ISignInFailure => ({
     type: AuthActions.SIGN_IN_FAILURE,
     payload: error,
 });
+
+export const signOut = (): ISignOut => ({ type: AuthActions.SIGN_OUT });
