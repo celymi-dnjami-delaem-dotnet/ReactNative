@@ -24,6 +24,8 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <NavigationContainer>
                     <Stack.Navigator>
+                        <Stack.Screen name={Routes.signIn} component={SignIn} />
+
                         <Stack.Screen
                             name={Routes.main}
                             component={Main}
@@ -69,8 +71,6 @@ const App = () => {
                                 ),
                             })}
                         />
-
-                        <Stack.Screen name={Routes.signIn} component={SignIn} />
                     </Stack.Navigator>
                 </NavigationContainer>
             </ThemeProvider>
