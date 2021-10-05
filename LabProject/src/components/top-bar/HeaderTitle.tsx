@@ -10,12 +10,8 @@ export interface IHeaderTitleRouteArgs {
 
 export interface IHeaderTitleProps extends NativeStackScreenProps<Record<string, IHeaderTitleRouteArgs>> {}
 
-const HeaderTitle = (props: IHeaderTitleProps) => {
-    const {
-        route: { params },
-    } = props;
-
-    return params?.pageName && params?.title ? (
+const HeaderTitle: React.FC<IHeaderTitleProps> = ({ route: { params } }) =>
+    params?.pageName && params?.title ? (
         <View style={styles.pageDescriptionContainer}>
             <Text style={styles.pageName}>{params.pageName}</Text>
             <Text style={styles.title}>{params.title}</Text>
@@ -23,7 +19,6 @@ const HeaderTitle = (props: IHeaderTitleProps) => {
     ) : (
         <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
     );
-};
 
 const styles = StyleSheet.create({
     logo: {

@@ -9,7 +9,7 @@ import { signOut } from '../../actions/authActions';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
-const HeaderRight = ({}: IHeaderRightProps) => {
+const HeaderRight: React.FC<IHeaderRightProps> = () => {
     const dispatch = useDispatch();
     const [accountOverlayVisible, setAccountOverlayVisible] = useState(false);
 

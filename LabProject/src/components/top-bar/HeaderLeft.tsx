@@ -10,7 +10,7 @@ export interface IHeaderLeftProps extends NativeStackScreenProps<Record<string, 
     canGoBack: boolean;
 }
 
-const HeaderLeft = ({ canGoBack, navigation }: IHeaderLeftProps) => {
+const HeaderLeft: React.FC<IHeaderLeftProps> = ({ canGoBack, navigation }) => {
     const backIconOpacity: number = 10;
 
     const onPressGoBack = () => {

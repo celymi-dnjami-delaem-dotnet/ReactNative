@@ -8,16 +8,14 @@ import Navigator from './src/screens/Navigator';
 
 const store = configureStore();
 
-const App = () => {
-    return (
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <NavigationContainer>
-                    <Navigator />
-                </NavigationContainer>
-            </ThemeProvider>
-        </Provider>
-    );
-};
+const App = () => (
+    <Provider store={store}>
+        <ThemeProvider theme={theme}>
+            <NavigationContainer>
+                <Navigator />
+            </NavigationContainer>
+        </ThemeProvider>
+    </Provider>
+);
 
 export default App;

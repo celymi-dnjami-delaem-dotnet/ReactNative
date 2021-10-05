@@ -8,14 +8,14 @@ export interface IAccountOverlayProps {
     onPressSignOut: () => void;
 }
 
-const AccountOverlay = (props: IAccountOverlayProps) => {
-    const { accountOverlayVisible, toggleAccountOverlay, onPressSignOut } = props;
-
-    return (
-        <Overlay isVisible={accountOverlayVisible} onBackdropPress={toggleAccountOverlay}>
-            <Button title="Sign out from account" onPress={onPressSignOut} />
-        </Overlay>
-    );
-};
+const AccountOverlay: React.FC<IAccountOverlayProps> = ({
+    accountOverlayVisible,
+    toggleAccountOverlay,
+    onPressSignOut,
+}) => (
+    <Overlay isVisible={accountOverlayVisible} onBackdropPress={toggleAccountOverlay}>
+        <Button title="Sign out from account" onPress={onPressSignOut} />
+    </Overlay>
+);
 
 export default AccountOverlay;
