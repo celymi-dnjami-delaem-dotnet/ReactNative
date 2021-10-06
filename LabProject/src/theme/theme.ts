@@ -5,6 +5,8 @@ const theme: Partial<FullTheme> = {
         primary: '#d73374',
         white: '#FFF',
         black: '#000',
+        grey0: '#a9a9a9',
+        grey1: '#5d5c5c',
     },
 };
 

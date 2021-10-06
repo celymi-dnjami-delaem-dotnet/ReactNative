@@ -24,7 +24,7 @@ const Navigator = () => {
     return (
         <Stack.Navigator>
             {!isLogged ? (
-                <Stack.Group>
+                <Stack.Group screenOptions={{ headerShown: false }}>
                     <Stack.Screen name={Routes.signIn} component={SignIn} />
                 </Stack.Group>
             ) : (
