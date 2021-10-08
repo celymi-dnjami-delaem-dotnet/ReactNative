@@ -1,3 +1,5 @@
+import { SignInState } from '../constants';
+
 export interface AppState {
     auth: AuthState;
 }
@@ -7,4 +9,5 @@ export interface AuthState {
     userName: string;
     jwt: string;
     isLoading: boolean;
+    state: SignInState;
 }

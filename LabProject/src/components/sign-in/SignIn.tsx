@@ -5,16 +5,19 @@ import theme from '../../theme/theme';
 import Input from '../common/Input';
 import Button, { ButtonColor } from '../common/Button';
 import Chip from '../common/Chip';
+import { SignInState } from '../../constants';
 
 export interface ISignInProps {
     email: string;
     password: string;
+    isLoading: boolean;
+    signInState: SignInState;
     onChangeEmail: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
     onChangePassword: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
     onPressSignIn: () => void;
 }
 
-const SignIn = ({ email, password, onChangeEmail, onChangePassword, onPressSignIn }: ISignInProps) => (
+const SignIn = ({ email, password, isLoading, onChangeEmail, onChangePassword, onPressSignIn }: ISignInProps) => (
     <View style={styles.root}>
         <View style={styles.headerContainer}>
             <View style={styles.mainTitleContainer}>
@@ -37,7 +40,14 @@ const SignIn = ({ email, password, onChangeEmail, onChangePassword, onPressSignI
         </View>
 
         <View style={styles.footerButtonsContainer}>
-            <Button title="Login" onPress={onPressSignIn} borderRadius={50} height={50} color={ButtonColor.Primary} />
+            <Button
+                title="Login"
+                onPress={onPressSignIn}
+                borderRadius={50}
+                height={50}
+                color={ButtonColor.Primary}
+                isLoading={isLoading}
+            />
             <Text style={styles.loginHelpText}>Let's test 2 ways to log in</Text>
             <View style={styles.pillsContainer}>
                 <Chip title="Touch ID" />

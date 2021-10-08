@@ -19,12 +19,12 @@ export interface IButtonProps {
     color: ButtonColor;
     type?: ButtonType;
     disabled?: boolean;
-    loading?: boolean;
+    isLoading?: boolean;
     borderRadius?: number;
     height?: number;
 }
 
-const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, borderRadius, onPress }) => (
+const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, borderRadius, isLoading, onPress }) => (
     <RNEButton
         containerStyle={styles().container}
         buttonStyle={[styles(borderRadius, height).button, [styles()[color]]]}
@@ -32,6 +32,7 @@ const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, 
         title={title}
         onPress={onPress}
         type={type}
+        loading={isLoading}
         disabled={disabled}
     />
 );
