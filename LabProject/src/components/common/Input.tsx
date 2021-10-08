@@ -11,7 +11,7 @@ export interface IInputProps {
     isPassword?: boolean;
 }
 
-const Input = ({ placeholder, onChange, value, label, isPassword }: IInputProps) => (
+const Input: React.FC<IInputProps> = ({ placeholder, onChange, value, label, isPassword }) => (
     <RNEInput
         onChange={onChange}
         value={value}

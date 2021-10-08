@@ -4,8 +4,6 @@ import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import theme from '../../theme/theme';
 
-Icon.loadFont();
-
 export interface IHeaderLeftProps extends NativeStackScreenProps<Record<string, object | undefined>> {
     canGoBack: boolean;
 }

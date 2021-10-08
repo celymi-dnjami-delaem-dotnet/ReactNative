@@ -16,8 +16,8 @@ export enum ButtonColor {
 export interface IButtonProps {
     title: string;
     onPress: () => void;
+    color: ButtonColor;
     type?: ButtonType;
-    color?: ButtonColor;
     disabled?: boolean;
     loading?: boolean;
     borderRadius?: number;
@@ -27,7 +27,7 @@ export interface IButtonProps {
 const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, borderRadius, onPress }) => (
     <RNEButton
         containerStyle={styles().container}
-        buttonStyle={styles(color, borderRadius, height).button}
+        buttonStyle={[styles(borderRadius, height).button, [styles()[color]]]}
         titleStyle={styles().title}
         title={title}
         onPress={onPress}
@@ -36,20 +36,22 @@ const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, 
     />
 );
 
-const styles = (color?: ButtonColor, borderRadius?: number, height?: number) =>
+const styles = (borderRadius?: number, height?: number) =>
     StyleSheet.create({
         container: {
             width: '100%',
         },
         button: {
             height: height ?? 'auto',
-            backgroundColor: color === ButtonColor.Primary ? theme.colors?.primary : theme.colors?.primary,
             borderRadius,
         },
         title: {
-            fontSize: 20,
+            fontSize: 18,
             textTransform: 'uppercase',
             fontWeight: '600',
+        },
+        primary: {
+            backgroundColor: theme?.colors?.primary,
         },
     });
 
