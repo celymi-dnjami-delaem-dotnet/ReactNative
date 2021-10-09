@@ -1,37 +1,29 @@
 import React from 'react';
-import { Button, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import Routes from '../constants/routes';
+import { getUserGreetingMessage } from '../utils';
+import theme from '../theme/theme';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
-const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }) => {
-    const randomItem = Math.floor(Math.random() * 100);
-
+const HomeScreen: React.FC<IHomeScreenProps> = () => {
     return (
-        <View>
-            <Button
-                title="Checking"
-                onPress={() =>
-                    // @ts-ignore
-                    navigation.navigate(Routes.checking, {
-                        pageName: Routes.checking,
-                        title: `By a house ${randomItem}`,
-                    })
-                }
-            />
-            <Button
-                title="Saving"
-                onPress={() =>
-                    // @ts-ignore
-                    navigation.navigate(Routes.saving, {
-                        pageName: Routes.saving,
-                        title: `Main Account ${randomItem}`,
-                    })
-                }
-            />
+        <View style={styles.root}>
+            <Text style={styles.greetingMessage}>{getUserGreetingMessage('Test')}</Text>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+        paddingHorizontal: 15,
+    },
+    greetingMessage: {
+        marginVertical: 20,
+        fontSize: 18,
+        color: theme.colors?.grey1,
+    },
+});
 
 export default HomeScreen;
