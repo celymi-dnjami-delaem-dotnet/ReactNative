@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     footerButtonsContainer: {
         width: '100%',
         flex: 1,
-        justifyContent: 'space-between',
     },
     loginHelpText: {
         alignSelf: 'center',

@@ -6,18 +6,21 @@ import configureStore from './src/store/store';
 import { Provider } from 'react-redux';
 import Navigator from './src/screens/Navigator';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { PersistGate } from 'redux-persist/integration/react';
 
 Icon.loadFont();
 
-const store = configureStore();
+const { store, persistor } = configureStore();
 
 const App = () => (
     <Provider store={store}>
-        <ThemeProvider theme={theme}>
-            <NavigationContainer>
-                <Navigator />
-            </NavigationContainer>
-        </ThemeProvider>
+        <PersistGate loading={null} persistor={persistor}>
+            <ThemeProvider theme={theme}>
+                <NavigationContainer>
+                    <Navigator />
+                </NavigationContainer>
+            </ThemeProvider>
+        </PersistGate>
     </Provider>
 );
 
