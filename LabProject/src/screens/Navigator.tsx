@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from '../constants/routes';
-import SignIn from './SignIn';
-import Main from './Main';
+import SignIn from './SignInScreen';
+import MainScreen from './MainScreen';
 import HeaderLeft from '../components/top-bar/HeaderLeft';
 import HeaderRight from '../components/top-bar/HeaderRight';
 import HeaderTitle, { IHeaderTitleRouteArgs } from '../components/top-bar/HeaderTitle';
@@ -11,8 +11,8 @@ import { StyleSheet } from 'react-native';
 import theme from '../theme/theme';
 import { useSelector } from 'react-redux';
 import { getJwt } from '../selectors/authSelectors';
-import Saving from './Saving';
-import Checking from './Checking';
+import SavingScreen from './SavingScreen';
+import CheckingScreen from './CheckingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,9 +38,9 @@ const Navigator = () => {
                         ),
                     })}
                 >
-                    <Stack.Screen name={Routes.main} component={Main} />
-                    <Stack.Screen name={Routes.saving} component={Saving} />
-                    <Stack.Screen name={Routes.checking} component={Checking} />
+                    <Stack.Screen name={Routes.main} component={MainScreen} />
+                    <Stack.Screen name={Routes.saving} component={SavingScreen} />
+                    <Stack.Screen name={Routes.checking} component={CheckingScreen} />
                 </Stack.Group>
             )}
         </Stack.Navigator>

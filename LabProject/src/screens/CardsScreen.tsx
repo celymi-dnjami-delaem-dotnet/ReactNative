@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Payments = () => (
+const CardsScreen = () => (
     <View>
-        <Text>Payments screen!</Text>
+        <Text>Coming soon!</Text>
     </View>
 );
 
-export default Payments;
+export default CardsScreen;

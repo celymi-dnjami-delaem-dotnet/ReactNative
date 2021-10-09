@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Checking = () => (
+const CheckingScreen = () => (
     <View style={styles.root}>
-        <Text>Checking screen!</Text>
+        <Text>Coming soon!</Text>
     </View>
 );
 
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Checking;
+export default CheckingScreen;
