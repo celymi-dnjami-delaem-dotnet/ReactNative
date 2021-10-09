@@ -9,9 +9,10 @@ export interface IInputProps {
     placeholder?: string;
     label?: string;
     isPassword?: boolean;
+    errorMessage?: string;
 }
 
-const Input: React.FC<IInputProps> = ({ placeholder, onChange, value, label, isPassword }) => (
+const Input: React.FC<IInputProps> = ({ placeholder, onChange, value, label, isPassword, errorMessage }) => (
     <RNEInput
         onChange={onChange}
         value={value}
@@ -21,6 +22,8 @@ const Input: React.FC<IInputProps> = ({ placeholder, onChange, value, label, isP
         placeholderTextColor={theme.colors?.grey0}
         containerStyle={styles.container}
         labelStyle={styles.label}
+        errorMessage={errorMessage}
+        errorStyle={styles.errorStyle}
     />
 );
 
@@ -32,6 +35,12 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '500',
         color: theme.colors?.grey1,
+    },
+    errorStyle: {
+        fontSize: 16,
+        color: '#c20404',
+        marginTop: 10,
+        marginHorizontal: 0,
     },
 });
 
