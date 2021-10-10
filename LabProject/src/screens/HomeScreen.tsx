@@ -1,29 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { getUserGreetingMessage } from '../utils';
-import theme from '../theme/theme';
+import { useSelector } from 'react-redux';
+import { getUserName } from '../selectors/authSelectors';
+import Home, { IHomeProps } from '../components/home/Home';
+import { IAccountsOverviewRowCard } from '../components/home/AccountsOverview';
+import Routes from '../constants/routes';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
 const HomeScreen: React.FC<IHomeScreenProps> = () => {
-    return (
-        <View style={styles.root}>
-            <Text style={styles.greetingMessage}>{getUserGreetingMessage('Test')}</Text>
-        </View>
-    );
-};
+    const userName: string = useSelector(getUserName);
 
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        paddingHorizontal: 15,
-    },
-    greetingMessage: {
-        marginVertical: 20,
-        fontSize: 18,
-        color: theme.colors?.grey1,
-    },
-});
+    const accountOverviewScreens: IAccountsOverviewRowCard[] = [
+        {
+            routeName: Routes.checking,
+            leftTitle: Routes.checking,
+            leftSubtitle: 'Main Account',
+            amount: 1500.2,
+        },
+        {
+            routeName: Routes.saving,
+            leftTitle: Routes.saving,
+            leftSubtitle: 'Buy a house',
+            amount: 5000.2,
+        },
+        {
+            routeName: Routes.cards,
+            leftTitle: 'Goodness',
+            leftSubtitle: 'Cash rewards',
+            amount: 500.4,
+            icon: require('../../assets/icons/heart-icon.png'),
+        },
+    ];
+
+    const homeProps: IHomeProps = {
+        userName,
+        accountOverviewScreens,
+    };
+
+    return <Home {...homeProps} />;
+};
 
 export default HomeScreen;

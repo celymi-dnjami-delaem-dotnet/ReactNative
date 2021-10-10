@@ -12,3 +12,16 @@ export const getUserGreetingMessage = (userName: string): string => {
 
     return `${greetingMessage}, ${userName}! | ${currentDate.toLocaleDateString()}`;
 };
+
+export const formatPrice = (price: number): string =>
+    `${price.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}`;
+
+export const getTotalPrice = (prices: number[]): string => {
+    if (!prices || !prices.length) {
+        return '';
+    }
+
+    const totalPrice = prices.reduce((acc, x) => acc + x, 0);
+
+    return formatPrice(totalPrice);
+};
