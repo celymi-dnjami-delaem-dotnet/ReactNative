@@ -57,6 +57,8 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         backgroundColor: theme.colors?.white,
         borderRadius: 5,
+        borderWidth: 1,
+        borderColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
     },
     mainHeaderTitle: {
         fontSize: 22,
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     },
     cardRowWithBorder: {
         borderBottomWidth: 1,
-        borderBottomColor: `rgba(${theme.colors.grey1Rgba},0.5)`,
+        borderBottomColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
     },
     cardRowWithoutBorder: {
         borderBottomWidth: undefined,
