@@ -14,45 +14,48 @@ export interface IGoodnessCardProps {
     onPressShare: () => void;
 }
 
-const GoodnessCard = ({ avatarLink, time, title, charityName, imageLink, text, onPressShare }: IGoodnessCardProps) => {
-    return (
-        <View style={styles.root}>
-            <View style={styles.header}>
-                <Image style={styles.avatarIcon} source={avatarLink} />
-                <View style={styles.headerTitlesSummaryContainer}>
-                    <View style={styles.headerTitleContainer}>
-                        <Text style={styles.title}>{title}</Text>
-                    </View>
-                    <View style={styles.headerTitleContainer}>
-                        <Text style={styles.subtitle}>{charityName}</Text>
-                        <Badge badgeStyle={styles.badge} />
-                        <Text style={styles.subtitle}>{time} hrs ago</Text>
-                    </View>
+const GoodnessCard: React.FC<IGoodnessCardProps> = ({
+    avatarLink,
+    time,
+    title,
+    charityName,
+    imageLink,
+    text,
+    onPressShare,
+}) => (
+    <View style={styles.root}>
+        <View style={styles.header}>
+            <Image style={styles.avatarIcon} source={avatarLink} />
+            <View style={styles.headerTitlesSummaryContainer}>
+                <View style={styles.headerTitleContainer}>
+                    <Text style={styles.title}>{title}</Text>
+                </View>
+                <View style={styles.headerTitleContainer}>
+                    <Text style={styles.subtitle}>{charityName}</Text>
+                    <Badge badgeStyle={styles.badge} />
+                    <Text style={styles.subtitle}>{time} hrs ago</Text>
                 </View>
             </View>
-
-            <Image style={styles.image} source={imageLink} />
-
-            <View style={styles.body}>
-                <Text style={styles.mainText}>{text}</Text>
-                <Button
-                    title="Share to spread the word"
-                    onPress={onPressShare}
-                    color={ButtonColor.Primary}
-                    borderRadius={30}
-                    height={60}
-                    fontSize={14}
-                    icon={
-                        <Image
-                            style={styles.buttonIcon}
-                            source={require('../../../assets/icons/share-arrow-icon.png')}
-                        />
-                    }
-                />
-            </View>
         </View>
-    );
-};
+
+        <Image style={styles.image} source={imageLink} />
+
+        <View style={styles.body}>
+            <Text style={styles.mainText}>{text}</Text>
+            <Button
+                title="Share to spread the word"
+                onPress={onPressShare}
+                color={ButtonColor.Primary}
+                borderRadius={30}
+                height={60}
+                fontSize={14}
+                icon={
+                    <Image style={styles.buttonIcon} source={require('../../../assets/icons/share-arrow-icon.png')} />
+                }
+            />
+        </View>
+    </View>
+);
 
 const styles = StyleSheet.create({
     root: {

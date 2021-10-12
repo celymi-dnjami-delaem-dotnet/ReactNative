@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ListRenderItemInfo, ScrollView, StyleSheet, Text, View } from 'react-native';
 import theme from '../../theme/theme';
 import { getUserGreetingMessage } from '../../utils';
 import AccountsOverview, { IAccountsOverviewRowCard } from './AccountsOverview';
@@ -20,21 +20,22 @@ const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodness
             <View style={styles.accountsOverviewContainer}>
                 <AccountsOverview accountOverviewScreens={accountOverviewScreens} />
             </View>
-            {goodnessCards && goodnessCards.length
-                ? goodnessCards.map((gC, index) => (
-                      <View style={styles.goodnessCardContainer} key={index}>
-                          <GoodnessCard
-                              avatarLink={gC.avatarLink}
-                              imageLink={gC.imageLink}
-                              title={gC.title}
-                              charityName={gC.charityName}
-                              time={gC.time}
-                              text={gC.text}
-                              onPressShare={gC.onPressShare}
-                          />
-                      </View>
-                  ))
-                : null}
+            <FlatList
+                data={goodnessCards}
+                renderItem={({ item }: ListRenderItemInfo<IGoodnessCardProps>) => (
+                    <View style={styles.goodnessCardContainer}>
+                        <GoodnessCard
+                            avatarLink={item.avatarLink}
+                            imageLink={item.imageLink}
+                            title={item.title}
+                            charityName={item.charityName}
+                            time={item.time}
+                            text={item.text}
+                            onPressShare={item.onPressShare}
+                        />
+                    </View>
+                )}
+            />
         </ScrollView>
     );
 };
