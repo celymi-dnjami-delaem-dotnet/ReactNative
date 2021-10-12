@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, ListRenderItemInfo, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
 import theme from '../../theme/theme';
 import { getUserGreetingMessage } from '../../utils';
 import AccountsOverview from './AccountsOverview';
@@ -16,33 +16,36 @@ export interface IHomeProps {
 
 const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodnessCards, onHandleNavigation }) => {
     return (
-        <ScrollView style={styles.root}>
-            <View style={styles.greetingContainer}>
-                <Text style={styles.greetingMessage}>{getUserGreetingMessage(userName)}</Text>
-            </View>
-            <View style={styles.accountsOverviewContainer}>
-                <AccountsOverview
-                    onHandleNavigation={onHandleNavigation}
-                    accountOverviewScreens={accountOverviewScreens}
-                />
-            </View>
-            <FlatList
-                data={goodnessCards}
-                renderItem={({ item }: ListRenderItemInfo<IGoodnessCardProps>) => (
-                    <View style={styles.goodnessCardContainer}>
-                        <GoodnessCard
-                            avatarLink={item.avatarLink}
-                            imageLink={item.imageLink}
-                            title={item.title}
-                            charityName={item.charityName}
-                            time={item.time}
-                            text={item.text}
-                            onPressShare={item.onPressShare}
+        <FlatList
+            style={styles.root}
+            ListHeaderComponent={
+                <>
+                    <View style={styles.greetingContainer}>
+                        <Text style={styles.greetingMessage}>{getUserGreetingMessage(userName)}</Text>
+                    </View>
+                    <View style={styles.accountsOverviewContainer}>
+                        <AccountsOverview
+                            onHandleNavigation={onHandleNavigation}
+                            accountOverviewScreens={accountOverviewScreens}
                         />
                     </View>
-                )}
-            />
-        </ScrollView>
+                </>
+            }
+            data={goodnessCards}
+            renderItem={({ item }: ListRenderItemInfo<IGoodnessCardProps>) => (
+                <View style={styles.goodnessCardContainer}>
+                    <GoodnessCard
+                        avatarLink={item.avatarLink}
+                        imageLink={item.imageLink}
+                        title={item.title}
+                        charityName={item.charityName}
+                        time={item.time}
+                        text={item.text}
+                        onPressShare={item.onPressShare}
+                    />
+                </View>
+            )}
+        />
     );
 };
 
