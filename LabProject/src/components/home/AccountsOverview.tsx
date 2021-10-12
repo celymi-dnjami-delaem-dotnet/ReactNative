@@ -1,52 +1,46 @@
 import React from 'react';
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import theme from '../../theme/theme';
-import { formatPrice, getTotalPrice } from '../../utils';
+import { getTotalPrice } from '../../utils';
+import CardRow, { ICardRowProps } from '../common/CardRow';
+import Routes from '../../constants/routes';
 
 export interface IAccountsOverviewProps {
-    accountOverviewScreens: IAccountsOverviewRowCard[];
+    onHandleNavigation: (route: keyof typeof Routes) => void;
+    accountOverviewScreens: ICardRowProps[];
 }
 
-export interface IAccountsOverviewRowCard {
-    routeName: string;
-    leftTitle: string;
-    leftSubtitle: string;
-    amount: number;
-    icon?: ImageSourcePropType;
-}
+const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccountsOverviewProps) => {
+    return (
+        <View style={styles.root}>
+            <Text style={styles.mainHeaderTitle}>Accounts Overview</Text>
+            <Text style={styles.priceTitle}>{getTotalPrice(accountOverviewScreens?.map(x => x.amount))}</Text>
+            <Text style={styles.priceHelperTitle}>Total available cash</Text>
 
-const AccountsOverview = ({ accountOverviewScreens }: IAccountsOverviewProps) => (
-    <View style={styles.root}>
-        <Text style={styles.mainHeaderTitle}>Accounts Overview</Text>
-        <Text style={styles.priceTitle}>{getTotalPrice(accountOverviewScreens?.map(x => x.amount))}</Text>
-        <Text style={styles.priceHelperTitle}>Total available cash</Text>
+            {accountOverviewScreens && accountOverviewScreens.length
+                ? accountOverviewScreens.map((x, index) => {
+                      const onPress = (): void => {
+                          onHandleNavigation(x.routeName as keyof typeof Routes);
+                      };
 
-        {accountOverviewScreens && accountOverviewScreens.length
-            ? accountOverviewScreens.map((x, index) => (
-                  <View
-                      key={x.routeName}
-                      style={[
-                          styles.cardRowContainer,
-                          index === accountOverviewScreens.length - 1
-                              ? styles.cardRowWithoutBorder
-                              : styles.cardRowWithBorder,
-                      ]}
-                  >
-                      <View style={styles.cardRowLeft}>
-                          <Text style={styles.leftTitle}>
-                              {x.leftTitle} {x.icon && <Image style={styles.letTitleIcon} source={x.icon} />}
-                          </Text>
-                          <Text style={styles.leftSubtitle}>{x.leftSubtitle}</Text>
-                      </View>
-                      <View style={styles.cardRowRight}>
-                          <Text style={styles.rightTitle}>{formatPrice(x.amount)}</Text>
-                          <Image style={styles.rightIcon} source={require('../../../assets/icons/back-icon.png')} />
-                      </View>
-                  </View>
-              ))
-            : null}
-    </View>
-);
+                      return (
+                          <CardRow
+                              {...x}
+                              key={index}
+                              customRootStyle={
+                                  index === accountOverviewScreens.length - 1
+                                      ? styles.cardRowWithoutBorder
+                                      : styles.cardRowWithBorder
+                              }
+                              rightTitleIcon={require('../../../assets/icons/back-icon.png')}
+                              onPress={onPress}
+                          />
+                      );
+                  })
+                : null}
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     root: {

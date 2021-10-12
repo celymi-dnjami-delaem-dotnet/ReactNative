@@ -2,23 +2,29 @@ import React from 'react';
 import { FlatList, ListRenderItemInfo, ScrollView, StyleSheet, Text, View } from 'react-native';
 import theme from '../../theme/theme';
 import { getUserGreetingMessage } from '../../utils';
-import AccountsOverview, { IAccountsOverviewRowCard } from './AccountsOverview';
+import AccountsOverview from './AccountsOverview';
 import GoodnessCard, { IGoodnessCardProps } from './GoodnessCard';
+import { ICardRowProps } from '../common/CardRow';
+import Routes from '../../constants/routes';
 
 export interface IHomeProps {
     userName: string;
-    accountOverviewScreens: IAccountsOverviewRowCard[];
+    accountOverviewScreens: ICardRowProps[];
     goodnessCards: IGoodnessCardProps[];
+    onHandleNavigation: (route: keyof typeof Routes) => void;
 }
 
-const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodnessCards }) => {
+const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodnessCards, onHandleNavigation }) => {
     return (
         <ScrollView style={styles.root}>
             <View style={styles.greetingContainer}>
                 <Text style={styles.greetingMessage}>{getUserGreetingMessage(userName)}</Text>
             </View>
             <View style={styles.accountsOverviewContainer}>
-                <AccountsOverview accountOverviewScreens={accountOverviewScreens} />
+                <AccountsOverview
+                    onHandleNavigation={onHandleNavigation}
+                    accountOverviewScreens={accountOverviewScreens}
+                />
             </View>
             <FlatList
                 data={goodnessCards}

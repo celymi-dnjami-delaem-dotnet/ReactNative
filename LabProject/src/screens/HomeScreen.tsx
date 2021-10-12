@@ -3,16 +3,21 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
 import { getUserName } from '../selectors/authSelectors';
 import Home, { IHomeProps } from '../components/home/Home';
-import { IAccountsOverviewRowCard } from '../components/home/AccountsOverview';
 import Routes from '../constants/routes';
 import { IGoodnessCardProps } from '../components/home/GoodnessCard';
+import { ICardRowProps } from '../components/common/CardRow';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
-const HomeScreen: React.FC<IHomeScreenProps> = () => {
+const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps) => {
     const userName: string = useSelector(getUserName);
 
-    const accountOverviewScreens: IAccountsOverviewRowCard[] = [
+    const onHandleNavigation = (route: keyof typeof Routes): void => {
+        // @ts-ignore
+        navigation.navigate(route);
+    };
+
+    const accountOverviewScreens: ICardRowProps[] = [
         {
             routeName: Routes.checking,
             leftTitle: Routes.checking,
@@ -30,7 +35,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = () => {
             leftTitle: 'Goodness',
             leftSubtitle: 'Cash rewards',
             amount: 500.4,
-            icon: require('../../assets/icons/heart-icon.png'),
+            leftTitleIcon: require('../../assets/icons/heart-icon.png'),
         },
     ];
 
@@ -63,6 +68,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = () => {
         userName,
         accountOverviewScreens,
         goodnessCards,
+        onHandleNavigation,
     };
 
     return <Home {...homeProps} />;
