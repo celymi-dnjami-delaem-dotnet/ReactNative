@@ -41,8 +41,9 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
 
     const goodnessCards: IGoodnessCardProps[] = [
         {
+            isVideo: false,
             avatarLink: require('../../assets/icons/avatar-icon.png'),
-            imageLink: require('../../assets/images/rectangle-image.png'),
+            graphLink: require('../../assets/images/rectangle-image.png'),
             title: 'Your Giving Impact',
             charityName: 'St Jude',
             time: 4,
@@ -52,8 +53,9 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
             },
         },
         {
+            isVideo: true,
             avatarLink: require('../../assets/icons/avatar-icon.png'),
-            imageLink: require('../../assets/images/rectangle2-image.png'),
+            graphLink: require('../../assets/videos/test-video.mp4'),
             title: 'Your Giving Impact',
             charityName: 'St Louis',
             time: 6,

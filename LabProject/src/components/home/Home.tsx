@@ -35,8 +35,9 @@ const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodness
             renderItem={({ item }: ListRenderItemInfo<IGoodnessCardProps>) => (
                 <View style={styles.goodnessCardContainer}>
                     <GoodnessCard
+                        isVideo={item.isVideo}
                         avatarLink={item.avatarLink}
-                        imageLink={item.imageLink}
+                        graphLink={item.graphLink}
                         title={item.title}
                         charityName={item.charityName}
                         time={item.time}
