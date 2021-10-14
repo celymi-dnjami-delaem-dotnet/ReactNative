@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AccountOverlay from './AccountOverlay';
-import { StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import theme from '../../theme/theme';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../actions/authActions';
+import { headerRightStyles as styles } from './styles';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
@@ -32,12 +31,5 @@ const HeaderRight: React.FC<IHeaderRightProps> = () => {
         </React.Fragment>
     );
 };
-
-const styles = StyleSheet.create({
-    icon: {
-        color: theme.colors?.white,
-        fontSize: 32,
-    },
-});
 
 export default HeaderRight;

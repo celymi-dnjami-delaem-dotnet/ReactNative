@@ -1,8 +1,7 @@
 import React from 'react';
 import { Chip as RNEChip } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
 import { IconNode } from 'react-native-elements/dist/icons/Icon';
-import theme from '../../theme/theme';
+import styles from './styles';
 
 export enum PillType {
     Solid = 'solid',
@@ -33,20 +32,5 @@ const Chip: React.FC<IChipProps> = ({ title, icon, chipColor = ChipColor.Primary
         type="outline"
     />
 );
-
-const styles = StyleSheet.create({
-    container: {
-        alignSelf: 'stretch',
-    },
-    iconContainer: {
-        width: 30,
-        height: 30,
-    },
-    grey: {
-        fontSize: 16,
-        color: theme.colors?.grey1,
-        borderColor: theme.colors?.grey1,
-    },
-});
 
 export default Chip;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button as RNEButton } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
-import theme from '../../theme/theme';
+import styles from './styles';
 
 export enum ButtonType {
     Solid = 'solid',
@@ -36,24 +35,4 @@ const Button: React.FC<IButtonProps> = ({ title, disabled, type, height, color, 
         disabled={disabled}
     />
 );
-
-const styles = (borderRadius?: number, height?: number) =>
-    StyleSheet.create({
-        container: {
-            width: '100%',
-        },
-        button: {
-            height: height ?? 'auto',
-            borderRadius,
-        },
-        title: {
-            fontSize: 18,
-            textTransform: 'uppercase',
-            fontWeight: '600',
-        },
-        primary: {
-            backgroundColor: theme?.colors?.primary,
-        },
-    });
-
 export default Button;
