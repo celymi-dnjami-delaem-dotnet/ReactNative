@@ -1,11 +1,11 @@
 import React from 'react';
-import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from 'react-native';
-import theme from '../../theme/theme';
+import { FlatList, ListRenderItemInfo, Text, View } from 'react-native';
 import { getUserGreetingMessage } from '../../utils';
 import AccountsOverview from './AccountsOverview';
 import GoodnessCard, { IGoodnessCardProps } from './GoodnessCard';
-import { ICardRowProps } from '../common/CardRow';
+import { ICardRowProps } from '../common/card-row/CardRow';
 import Routes from '../../constants/routes';
+import { homeStyles as styles } from './styles';
 
 export interface IHomeProps {
     userName: string;
@@ -49,26 +49,5 @@ const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodness
         />
     );
 };
-
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        paddingHorizontal: 15,
-        marginTop: 20,
-    },
-    greetingContainer: {
-        marginBottom: 20,
-    },
-    greetingMessage: {
-        fontSize: 18,
-        color: theme.colors?.grey1,
-    },
-    accountsOverviewContainer: {
-        marginBottom: 20,
-    },
-    goodnessCardContainer: {
-        marginBottom: 10,
-    },
-});
 
 export default Home;
