@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import theme from '../../theme/theme';
 import { Badge } from 'react-native-elements';
-import Button, { ButtonColor } from '../common/Button';
+import Button, { ButtonColor } from '../common/button/Button';
 import Video from 'react-native-video';
 
 export interface IGoodnessCardProps {

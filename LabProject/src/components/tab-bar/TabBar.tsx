@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, Text } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useTheme } from 'react-native-elements';
 import { ITabBarType } from '../../types/tab-bar';
 import Routes from '../../constants/routes';
@@ -9,6 +9,7 @@ import AccountsScreen from '../../screens/AccountsScreen';
 import GivingScreen from '../../screens/GivingScreen';
 import PaymentsScreen from '../../screens/PaymentsScreen';
 import CardsScreen from '../../screens/CardsScreen';
+import styles from './styles';
 
 const TabBarItems: ITabBarType[] = [
     {
@@ -76,20 +77,5 @@ const TabBar = () => {
         </Tab.Navigator>
     );
 };
-
-const styles = StyleSheet.create({
-    tabBar: {
-        borderTopColor: 'black',
-        backgroundColor: 'transparent',
-    },
-    icon: {
-        width: 35,
-        height: 35,
-    },
-    label: {
-        fontSize: 12,
-        color: '#000',
-    },
-});
 
 export default TabBar;

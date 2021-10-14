@@ -1,12 +1,12 @@
-import React from 'react';
-import { NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View } from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, NativeSyntheticEvent, Platform, TextInputChangeEventData, View } from 'react-native';
 import { Text } from 'react-native-elements';
-import theme from '../../theme/theme';
-import Input from '../common/Input';
-import Button, { ButtonColor } from '../common/Button';
-import Chip, { ChipColor } from '../common/Chip';
+import Input from '../common/input/Input';
+import Button, { ButtonColor } from '../common/button/Button';
+import Chip, { ChipColor } from '../common/chip/Chip';
 import { SignInState } from '../../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
+import styles from './styles';
 
 export interface ISignInProps {
     email: string;
@@ -27,11 +27,18 @@ const SignIn: React.FC<ISignInProps> = ({
     onChangePassword,
     onPressSignIn,
 }) => {
+    const [buttonViewHeight, setButtonViewHeight] = useState<number>(0);
+
     const errorMessage: string = signInState === SignInState.FailedAttempt ? 'Invalid credentials' : '';
     const chipIconSize: number = 18;
+    const keyboardVerticalOffset = -(buttonViewHeight / 2);
 
     return (
-        <View style={styles.root}>
+        <KeyboardAvoidingView
+            style={styles.root}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={keyboardVerticalOffset}
+        >
             <View style={styles.headerContainer}>
                 <View style={styles.mainTitleContainer}>
                     <Text style={styles.mainTitle} h2={true}>
@@ -63,7 +70,12 @@ const SignIn: React.FC<ISignInProps> = ({
                 <Text style={styles.forgotPasswordTooltip}>Forgot Password</Text>
             </View>
 
-            <View style={styles.footerButtonsContainer}>
+            <View
+                style={styles.footerButtonsContainer}
+                onLayout={e => {
+                    setButtonViewHeight(e.nativeEvent.layout.height);
+                }}
+            >
                 <Button
                     title="Login"
                     onPress={onPressSignIn}
@@ -86,68 +98,8 @@ const SignIn: React.FC<ISignInProps> = ({
                     />
                 </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
-
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        marginHorizontal: 30,
-        marginVertical: 50,
-        position: 'relative',
-    },
-    headerContainer: {
-        width: '100%',
-        flex: 0.5,
-        justifyContent: 'center',
-    },
-    mainTitleContainer: {
-        alignSelf: 'flex-start',
-        borderBottomWidth: 5,
-        borderBottomColor: theme.colors?.primary,
-    },
-    mainTitle: {
-        fontWeight: 'bold',
-        borderBottomWidth: 1,
-    },
-    inputsContainer: {
-        width: '100%',
-        flex: 2,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    forgotPasswordTooltip: {
-        alignSelf: 'flex-end',
-        fontSize: 16,
-        color: theme.colors?.primary,
-        fontWeight: 'bold',
-        textTransform: 'uppercase',
-        marginTop: 10,
-    },
-    footerButtonsContainer: {
-        width: '100%',
-        flex: 1,
-    },
-    loginHelpText: {
-        alignSelf: 'center',
-        fontSize: 16,
-        color: theme.colors?.grey1,
-        marginBottom: 30,
-        marginTop: 'auto',
-    },
-    pillsContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-});
 
 export default SignIn;
