@@ -1,5 +1,5 @@
-import React from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData, View } from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, NativeSyntheticEvent, Platform, TextInputChangeEventData, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import Input from '../common/input/Input';
 import Button, { ButtonColor } from '../common/button/Button';
@@ -27,11 +27,18 @@ const SignIn: React.FC<ISignInProps> = ({
     onChangePassword,
     onPressSignIn,
 }) => {
+    const [buttonViewHeight, setButtonViewHeight] = useState<number>(0);
+
     const errorMessage: string = signInState === SignInState.FailedAttempt ? 'Invalid credentials' : '';
     const chipIconSize: number = 18;
+    const keyboardVerticalOffset = -(buttonViewHeight / 2);
 
     return (
-        <View style={styles.root}>
+        <KeyboardAvoidingView
+            style={styles.root}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={keyboardVerticalOffset}
+        >
             <View style={styles.headerContainer}>
                 <View style={styles.mainTitleContainer}>
                     <Text style={styles.mainTitle} h2={true}>
@@ -63,7 +70,12 @@ const SignIn: React.FC<ISignInProps> = ({
                 <Text style={styles.forgotPasswordTooltip}>Forgot Password</Text>
             </View>
 
-            <View style={styles.footerButtonsContainer}>
+            <View
+                style={styles.footerButtonsContainer}
+                onLayout={e => {
+                    setButtonViewHeight(e.nativeEvent.layout.height);
+                }}
+            >
                 <Button
                     title="Login"
                     onPress={onPressSignIn}
@@ -86,7 +98,7 @@ const SignIn: React.FC<ISignInProps> = ({
                     />
                 </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
