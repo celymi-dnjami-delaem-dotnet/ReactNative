@@ -12,7 +12,7 @@ const UserDescription: React.FC<IUserDescriptionProps> = ({ userName, userAvatar
     <View style={styles.root}>
         <Image source={{ uri: userAvatarLink }} style={styles.userAvatar} />
         <View style={styles.userDescriptionContainer}>
-            <Text style={styles.descriptionSubtitle}>Name</Text>
+            <Text style={styles.descriptionSubtitle}>Full name</Text>
             <Text style={styles.descriptionTitle}>{userName}</Text>
         </View>
         <View style={styles.userDescriptionContainer}>

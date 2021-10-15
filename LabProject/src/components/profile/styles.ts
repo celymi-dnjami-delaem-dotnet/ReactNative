@@ -6,6 +6,7 @@ export const profileStyles = StyleSheet.create({
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
+        margin: 20,
     },
 });
 
@@ -14,7 +15,6 @@ export const userDescriptionStyles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: 20,
     },
     userAvatar: {
         width: 150,
@@ -35,5 +35,15 @@ export const userDescriptionStyles = StyleSheet.create({
     descriptionTitle: {
         color: theme.colors?.black,
         fontSize: 22,
+    },
+});
+
+export const managementPanelStyles = StyleSheet.create({
+    root: {
+        marginTop: 'auto',
+        marginBottom: 20,
+    },
+    applyChangesButton: {
+        marginBottom: 20,
     },
 });
