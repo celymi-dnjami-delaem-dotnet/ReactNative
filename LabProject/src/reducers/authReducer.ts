@@ -3,8 +3,12 @@ import { AuthActions, ISignInSuccess } from '../actions/authActions';
 import { SignInState } from '../constants';
 
 const initialState: AuthState = {
-    email: '',
-    userName: '',
+    profile: {
+        avatarLink: '',
+        email: '',
+        userName: '',
+        dateOfBirth: undefined,
+    },
     jwt: '',
     isLoading: false,
     state: SignInState.NotAttempted,
@@ -30,10 +34,9 @@ const handleSignInRequest = (state: AuthState): AuthState => ({
     isLoading: true,
 });
 
-const handleSignInSuccess = (state: AuthState, { payload: { email, userName, jwt } }: ISignInSuccess): AuthState => ({
+const handleSignInSuccess = (state: AuthState, { payload: { profile, jwt } }: ISignInSuccess): AuthState => ({
     ...state,
-    email,
-    userName,
+    profile,
     jwt,
     isLoading: false,
     state: SignInState.SuccessfulAttempt,

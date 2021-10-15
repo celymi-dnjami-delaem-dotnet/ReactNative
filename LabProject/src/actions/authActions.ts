@@ -1,4 +1,4 @@
-import { IBaseAction } from '../types';
+import { IBaseAction, IUserProfile } from '../types';
 
 export const AuthActions = {
     SIGN_IN_REQUEST: 'auth/signInRequest',
@@ -20,8 +20,7 @@ export interface ISignInRequest extends IBaseAction {
 
 export interface ISignInSuccess extends IBaseAction {
     payload: {
-        email: string;
-        userName: string;
+        profile: IUserProfile;
         jwt: string;
     };
 }
@@ -44,11 +43,10 @@ export const signInRequest = (email: string, password: string): ISignInRequest =
     },
 });
 
-export const signInSuccess = (email: string, userName: string, jwt: string): ISignInSuccess => ({
+export const signInSuccess = (profile: IUserProfile, jwt: string): ISignInSuccess => ({
     type: AuthActions.SIGN_IN_SUCCESS,
     payload: {
-        email,
-        userName,
+        profile,
         jwt,
     },
 });

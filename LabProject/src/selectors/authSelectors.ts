@@ -7,4 +7,8 @@ export const getSignInState = (state: AppState): SignInState => state.auth.state
 
 export const getJwt = (state: AppState): string => state.auth.jwt;
 
-export const getUserName = (state: AppState): string => state.auth.userName;
+export const getUserName = (state: AppState): string => state.auth.profile.userName;
+
+export const getUserDateOfBirth = (state: AppState): Date => state.auth.profile.dateOfBirth;
+
+export const getUserAvatarLink = (state: AppState): string => state.auth.profile.avatarLink;
