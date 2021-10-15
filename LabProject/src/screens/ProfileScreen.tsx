@@ -1,12 +1,16 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { getUserName } from '../selectors/authSelectors';
+import Profile, { IProfileProps } from '../components/profile/Profile';
 
-const ProfileScreen = () => <View style={styles.root} />;
+const ProfileScreen = () => {
+    const userName: string = useSelector(getUserName);
 
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-    },
-});
+    const profileProps: IProfileProps = {
+        userName,
+    };
+
+    return <Profile {...profileProps} />;
+};
 
 export default ProfileScreen;
