@@ -10,12 +10,14 @@ import { getUserAvatarLink } from '../../selectors/authSelectors';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
-const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation }) => {
+const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation, route }) => {
     const dispatch = useDispatch();
 
     const userAvatarLink: string = useSelector(getUserAvatarLink);
 
     const [accountOverlayVisible, setAccountOverlayVisible] = useState(false);
+
+    const displayUserMenu: boolean = route.name !== Routes.profile;
 
     const onSelectMenuOption = (type: ProfileMenuOptions): void => {
         switch (type) {
@@ -56,14 +58,16 @@ const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation }) => {
                 toggleAccountOverlay={toggleAccountOverlay}
                 menuOptions={menuOptions}
             />
-            <TouchableOpacity activeOpacity={1} style={styles.icon} onPress={toggleAccountOverlay}>
-                <Image
-                    source={{
-                        uri: userAvatarLink,
-                    }}
-                    style={styles.icon}
-                />
-            </TouchableOpacity>
+            {displayUserMenu && (
+                <TouchableOpacity activeOpacity={1} style={styles.icon} onPress={toggleAccountOverlay}>
+                    <Image
+                        source={{
+                            uri: userAvatarLink,
+                        }}
+                        style={styles.icon}
+                    />
+                </TouchableOpacity>
+            )}
         </React.Fragment>
     );
 };

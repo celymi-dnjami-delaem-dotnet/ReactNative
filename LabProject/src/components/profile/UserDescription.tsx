@@ -8,22 +8,18 @@ export interface IUserDescriptionProps {
     userDateOfBirth: Date;
 }
 
-const UserDescription: React.FC<IUserDescriptionProps> = ({ userName, userAvatarLink, userDateOfBirth }) => {
-    console.log(userDateOfBirth);
-
-    return (
-        <View style={styles.root}>
-            <Image source={{ uri: userAvatarLink }} style={styles.userAvatar} />
-            <View style={styles.userDescriptionContainer}>
-                <Text style={styles.descriptionSubtitle}>Name</Text>
-                <Text style={styles.descriptionTitle}>{userName}</Text>
-            </View>
-            <View style={styles.userDescriptionContainer}>
-                <Text style={styles.descriptionSubtitle}>Date of birth</Text>
-                <Text style={styles.descriptionTitle}>{new Date(userDateOfBirth).toLocaleDateString()}</Text>
-            </View>
+const UserDescription: React.FC<IUserDescriptionProps> = ({ userName, userAvatarLink, userDateOfBirth }) => (
+    <View style={styles.root}>
+        <Image source={{ uri: userAvatarLink }} style={styles.userAvatar} />
+        <View style={styles.userDescriptionContainer}>
+            <Text style={styles.descriptionSubtitle}>Name</Text>
+            <Text style={styles.descriptionTitle}>{userName}</Text>
         </View>
-    );
-};
+        <View style={styles.userDescriptionContainer}>
+            <Text style={styles.descriptionSubtitle}>Date of birth</Text>
+            <Text style={styles.descriptionTitle}>{new Date(userDateOfBirth).toLocaleDateString()}</Text>
+        </View>
+    </View>
+);
 
 export default UserDescription;
