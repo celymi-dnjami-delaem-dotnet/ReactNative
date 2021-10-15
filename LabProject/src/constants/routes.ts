@@ -8,6 +8,7 @@ const Routes = {
     cards: 'Cards',
     checking: 'Checking',
     saving: 'Saving',
+    profile: 'Profile',
 };
 
 export default Routes;

@@ -2,19 +2,36 @@ import React from 'react';
 import { Overlay } from 'react-native-elements';
 import { Button } from 'react-native';
 
+export enum ProfileMenuOptions {
+    EditProfile = 'EditProfile',
+    LogOut = 'LogOut',
+}
+
 export interface IAccountOverlayProps {
     accountOverlayVisible: boolean;
     toggleAccountOverlay: () => void;
-    onPressSignOut: () => void;
+    menuOptions: IProfileMenuOption[];
+}
+
+export interface IProfileMenuOption {
+    title: string;
+    type: ProfileMenuOptions;
+    onPress: (type: ProfileMenuOptions) => void;
 }
 
 const AccountOverlay: React.FC<IAccountOverlayProps> = ({
     accountOverlayVisible,
     toggleAccountOverlay,
-    onPressSignOut,
+    menuOptions,
 }) => (
     <Overlay isVisible={accountOverlayVisible} onBackdropPress={toggleAccountOverlay}>
-        <Button title="Sign out from account" onPress={onPressSignOut} />
+        {menuOptions.map(x => {
+            const onPress = () => {
+                x.onPress(x.type);
+            };
+
+            return <Button key={x.type} title={x.title} onPress={onPress} />;
+        })}
     </Overlay>
 );
 

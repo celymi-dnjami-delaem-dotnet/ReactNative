@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { getJwt } from '../selectors/authSelectors';
 import SavingScreen from './SavingScreen';
 import CheckingScreen from './CheckingScreen';
+import ProfileScreen from './ProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ const Navigator = () => {
                     <Stack.Screen name={Routes.main} component={MainScreen} />
                     <Stack.Screen name={Routes.saving} component={SavingScreen} />
                     <Stack.Screen name={Routes.checking} component={CheckingScreen} />
+                    <Stack.Screen name={Routes.profile} component={ProfileScreen} />
                 </Stack.Group>
             )}
         </Stack.Navigator>
