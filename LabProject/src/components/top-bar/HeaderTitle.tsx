@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import theme from '../../theme/theme';
+import { headerTitleStyles as styles } from './styles';
 
 export interface IHeaderTitleRouteArgs {
     pageName?: string;
@@ -19,29 +19,5 @@ const HeaderTitle: React.FC<IHeaderTitleProps> = ({ route: { params } }) =>
     ) : (
         <Image style={styles.logo} source={require('../../../assets/icons/app-logo-icon.png')} />
     );
-
-const styles = StyleSheet.create({
-    logo: {
-        width: 180,
-        height: 30,
-    },
-    icon: {
-        color: theme.colors?.white,
-        fontSize: 32,
-    },
-    pageDescriptionContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    pageName: {
-        fontSize: 18,
-        color: theme.colors?.white,
-    },
-    title: {
-        fontSize: 12,
-        color: theme.colors?.white,
-    },
-});
 
 export default HeaderTitle;

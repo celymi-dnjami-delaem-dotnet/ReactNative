@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AccountOverlay from './AccountOverlay';
-import { StyleSheet } from 'react-native';
-import Routes from '../../constants/routes';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import theme from '../../theme/theme';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../actions/authActions';
+import { headerRightStyles as styles } from './styles';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
-const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation }) => {
+const HeaderRight: React.FC<IHeaderRightProps> = () => {
+    const dispatch = useDispatch();
     const [accountOverlayVisible, setAccountOverlayVisible] = useState(false);
 
-    const onPressSignOut = () => {
-        navigation.reset({ index: 0, routes: [{ name: Routes.signIn }] });
+    const onPressSignOut = (): void => {
+        dispatch(signOut());
     };
 
-    const toggleAccountOverlay = () => {
+    const toggleAccountOverlay = (): void => {
         setAccountOverlayVisible(!accountOverlayVisible);
     };
 
@@ -30,12 +31,5 @@ const HeaderRight: React.FC<IHeaderRightProps> = ({ navigation }) => {
         </React.Fragment>
     );
 };
-
-const styles = StyleSheet.create({
-    icon: {
-        color: theme.colors?.white,
-        fontSize: 32,
-    },
-});
 
 export default HeaderRight;

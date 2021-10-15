@@ -1,44 +1,45 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, Text } from 'react-native';
+import { Image, Text } from 'react-native';
 import { useTheme } from 'react-native-elements';
 import { ITabBarType } from '../../types/tab-bar';
 import Routes from '../../constants/routes';
-import Home from '../../screens/Home';
-import Accounts from '../../screens/Accounts';
-import Giving from '../../screens/Giving';
-import Payments from '../../screens/Payments';
-import Cards from '../../screens/Cards';
+import HomeScreen from '../../screens/HomeScreen';
+import AccountsScreen from '../../screens/AccountsScreen';
+import GivingScreen from '../../screens/GivingScreen';
+import PaymentsScreen from '../../screens/PaymentsScreen';
+import CardsScreen from '../../screens/CardsScreen';
+import styles from './styles';
 
 const TabBarItems: ITabBarType[] = [
     {
         name: Routes.home,
         title: 'Home',
-        component: Home,
+        component: HomeScreen,
         iconSource: require('../../../assets/icons/home-icon.png'),
     },
     {
         name: Routes.accounts,
         title: 'Accounts',
-        component: Accounts,
+        component: AccountsScreen,
         iconSource: require('../../../assets/icons/accounts-icon.png'),
     },
     {
         name: Routes.giving,
         title: 'Giving',
-        component: Giving,
+        component: GivingScreen,
         iconSource: require('../../../assets/icons/giving-icon.png'),
     },
     {
         name: Routes.payments,
         title: 'Payments',
-        component: Payments,
+        component: PaymentsScreen,
         iconSource: require('../../../assets/icons/payment-icon.png'),
     },
     {
         name: Routes.cards,
         title: 'Cards',
-        component: Cards,
+        component: CardsScreen,
         iconSource: require('../../../assets/icons/credit-cards-icon.png'),
     },
 ];
@@ -76,20 +77,5 @@ const TabBar = () => {
         </Tab.Navigator>
     );
 };
-
-const styles = StyleSheet.create({
-    tabBar: {
-        borderTopColor: 'black',
-        backgroundColor: 'transparent',
-    },
-    icon: {
-        width: 35,
-        height: 35,
-    },
-    label: {
-        fontSize: 12,
-        color: '#000',
-    },
-});
 
 export default TabBar;
