@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
 import AccountOverlay from './AccountOverlay';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../actions/authActions';
 import { headerRightStyles as styles } from './styles';
+import { Image, TouchableOpacity } from 'react-native';
+import { AwesomeUserImageUrl } from '../../constants';
 
 export interface IHeaderRightProps extends NativeStackScreenProps<Record<string, object | undefined>> {}
 
@@ -27,7 +28,14 @@ const HeaderRight: React.FC<IHeaderRightProps> = () => {
                 toggleAccountOverlay={toggleAccountOverlay}
                 onPressSignOut={onPressSignOut}
             />
-            <Icon onPress={toggleAccountOverlay} style={styles.icon} name="person-circle-outline" />
+            <TouchableOpacity style={styles.icon} onPress={toggleAccountOverlay}>
+                <Image
+                    source={{
+                        uri: AwesomeUserImageUrl,
+                    }}
+                    style={styles.icon}
+                />
+            </TouchableOpacity>
         </React.Fragment>
     );
 };
