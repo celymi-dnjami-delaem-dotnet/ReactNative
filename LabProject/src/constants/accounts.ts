@@ -15,7 +15,7 @@ export const accountOverviewScreens: ICardRowProps[] = [
         amount: 5000.2,
     },
     {
-        routeName: Routes.cards,
+        routeName: Routes.goodness,
         leftTitle: 'Goodness',
         leftSubtitle: 'Cash rewards',
         amount: 500.4,

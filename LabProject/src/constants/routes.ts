@@ -9,6 +9,7 @@ const Routes = {
     checking: 'Checking',
     saving: 'Savings',
     profile: 'Profile',
+    goodness: 'Goodness',
 };
 
 export default Routes;
