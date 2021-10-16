@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, ImageSourcePropType, Text, View } from 'react-native';
 import { accountsSummaryDetailsStyles as styles } from './styles';
 import { getTotalPrice } from '../../utils';
+import TotalCash from '../total-cash/TotalCash';
 
 interface IAccountButtonOption {
     iconLink: ImageSourcePropType;
@@ -31,8 +32,7 @@ const AccountsSummaryDetails: React.FC<IAccountsSummaryDetailsProps> = ({ prices
     return (
         <View style={styles.root}>
             <View style={styles.cashContainer}>
-                <Text style={styles.cashTitle}>{getTotalPrice(prices)}</Text>
-                <Text style={styles.cashSubtitle}>Total Available Cash</Text>
+                <TotalCash amount={getTotalPrice(prices)} titleFontSize={38} subTitleFontSize={20} />
             </View>
             <View style={styles.buttonsManagementContainer}>
                 {iconButtons.map(({ iconLink, subtitle }, index) => (

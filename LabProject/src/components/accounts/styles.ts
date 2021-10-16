@@ -10,7 +10,7 @@ export const accountsStyles = StyleSheet.create({
         marginTop: 15,
         padding: 10,
         backgroundColor: theme.colors?.white,
-        borderRadius: 5,
+        borderRadius: 10,
         borderWidth: 1,
         borderColor: `rgba(${theme.colors?.grey1Rgba},0.3)`,
     },
@@ -26,15 +26,6 @@ export const accountsSummaryDetailsStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 25,
-    },
-    cashTitle: {
-        fontSize: 38,
-        color: theme.colors?.black,
-    },
-    cashSubtitle: {
-        marginTop: 5,
-        fontSize: 20,
-        color: theme.colors?.grey0,
     },
     buttonsManagementContainer: {
         display: 'flex',

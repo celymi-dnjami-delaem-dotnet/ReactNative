@@ -119,15 +119,7 @@ export const accountsOverviewStyles = StyleSheet.create({
     mainHeaderTitle: {
         fontSize: 22,
         fontWeight: '600',
-    },
-    priceTitle: {
-        fontSize: 30,
-        marginTop: 10,
-        marginBottom: 5,
-    },
-    priceHelperTitle: {
-        color: theme.colors?.grey0,
-        textTransform: 'capitalize',
+        marginBottom: 10,
     },
     cardRowContainer: {
         width: '100%',
