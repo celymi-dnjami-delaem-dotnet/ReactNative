@@ -1,10 +1,17 @@
 import { delay, put, takeLatest } from 'redux-saga/effects';
-import { AuthActions, ISignInRequest, signInFailure, signInSuccess } from '../actions/authActions';
+import {
+    AuthActions,
+    ISignInRequest,
+    IUpdateProfileRequest,
+    signInFailure,
+    signInSuccess,
+    updateUserProfileSuccess,
+} from '../actions/authActions';
 import { IUserProfile } from '../types';
+import { apiRequestDelayTime } from '../constants';
 
 function* handleSignIn({ payload: { email, password } }: ISignInRequest) {
     try {
-        const apiRequestDelayTime: number = 1000;
         const fakePassword: string = 'admin';
         const fakeJwt: string =
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3RVc2VyTmFtZSIsImlhdCI6MTUxNjIzOTAyMn0.9ioVahAf729TB8ODRKu6iLu2DaGry1MfRiJlXZyVn5E';
@@ -32,6 +39,13 @@ function* handleSignIn({ payload: { email, password } }: ISignInRequest) {
     }
 }
 
+function* handleUpdateProfile({ payload: { userName, dateOfBirth } }: IUpdateProfileRequest) {
+    yield delay(apiRequestDelayTime);
+
+    yield put(updateUserProfileSuccess(userName, dateOfBirth));
+}
+
 export default function* authSaga() {
     yield takeLatest(AuthActions.SIGN_IN_REQUEST, handleSignIn);
+    yield takeLatest(AuthActions.UPDATE_PROFILE_REQUEST, handleUpdateProfile);
 }

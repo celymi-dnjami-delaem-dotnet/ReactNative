@@ -6,6 +6,7 @@ import { buttonHeight, buttonRadius, ProfileOptions } from '../../constants/prof
 
 export interface IManagementPanelProps {
     selectedProfileOption: ProfileOptions;
+    isLoading: boolean;
     onPressEditProfile: () => void;
     onPressApplyUpdates: () => void;
     onPressCancelChanges: () => void;
@@ -13,6 +14,7 @@ export interface IManagementPanelProps {
 
 const ManagementPanel: React.FC<IManagementPanelProps> = ({
     selectedProfileOption,
+    isLoading,
     onPressEditProfile,
     onPressApplyUpdates,
     onPressCancelChanges,
@@ -29,6 +31,7 @@ const ManagementPanel: React.FC<IManagementPanelProps> = ({
         ) : (
             <>
                 <Button
+                    isLoading={isLoading}
                     title="Apply Updates"
                     onPress={onPressApplyUpdates}
                     color={ButtonColor.Primary}

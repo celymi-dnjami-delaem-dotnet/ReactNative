@@ -5,6 +5,8 @@ export const AuthActions = {
     SIGN_IN_SUCCESS: 'auth/signInSuccess',
     SIGN_IN_FAILURE: 'auth/signInFailure',
     SIGN_OUT: 'auth/signOut',
+    UPDATE_PROFILE_REQUEST: 'auth/updateProfileRequest',
+    UPDATE_PROFILE_SUCCESS: 'auth/updateProfileSuccess',
 };
 
 /*
@@ -30,6 +32,20 @@ export interface ISignInFailure extends IBaseAction {
 }
 
 export interface ISignOut extends IBaseAction {}
+
+export interface IUpdateProfileRequest extends IBaseAction {
+    payload: {
+        userName: string;
+        dateOfBirth: Date;
+    };
+}
+
+export interface IUpdateProfileSuccess extends IBaseAction {
+    payload: {
+        userName: string;
+        dateOfBirth: Date;
+    };
+}
 
 /*
     Actions
@@ -57,3 +73,19 @@ export const signInFailure = (error: Error): ISignInFailure => ({
 });
 
 export const signOut = (): ISignOut => ({ type: AuthActions.SIGN_OUT });
+
+export const updateUserProfileRequest = (userName: string, dateOfBirth: Date): IUpdateProfileRequest => ({
+    type: AuthActions.UPDATE_PROFILE_REQUEST,
+    payload: {
+        userName,
+        dateOfBirth,
+    },
+});
+
+export const updateUserProfileSuccess = (userName: string, dateOfBirth: Date): IUpdateProfileSuccess => ({
+    type: AuthActions.UPDATE_PROFILE_SUCCESS,
+    payload: {
+        userName,
+        dateOfBirth,
+    },
+});

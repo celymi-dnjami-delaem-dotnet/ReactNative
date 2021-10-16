@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getUserAvatarLink, getUserDateOfBirth, getUserName } from '../selectors/authSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoading, getUserAvatarLink, getUserDateOfBirth, getUserName } from '../selectors/authSelectors';
 import Profile, { IProfileProps } from '../components/profile/Profile';
 import { ProfileEditingFields, ProfileOptions } from '../constants/profile';
+import { updateUserProfileRequest } from '../actions/authActions';
 
 const ProfileScreen = () => {
+    const dispatch = useDispatch();
+
     const userName: string = useSelector(getUserName);
     const userDateOfBirth: Date = useSelector(getUserDateOfBirth);
     const userAvatarLink: string = useSelector(getUserAvatarLink);
+    const isLoading: boolean = useSelector(getIsLoading);
 
     const [selectedProfileOption, setSelectedProfileOption] = useState<ProfileOptions>(ProfileOptions.View);
     const [newUserName, setNewUserName] = useState<string>(userName);
@@ -18,7 +22,9 @@ const ProfileScreen = () => {
         setSelectedProfileOption(ProfileOptions.Edit);
     };
 
-    const onPressApplyUpdates = (): void => {};
+    const onPressApplyUpdates = (): void => {
+        dispatch(updateUserProfileRequest(newUserName, newUserDateOfBirth));
+    };
 
     const onPressCancelChanges = (): void => {
         setSelectedProfileOption(ProfileOptions.View);
@@ -57,6 +63,7 @@ const ProfileScreen = () => {
         },
         managementPanelProps: {
             selectedProfileOption,
+            isLoading,
             onPressEditProfile,
             onPressApplyUpdates,
             onPressCancelChanges,

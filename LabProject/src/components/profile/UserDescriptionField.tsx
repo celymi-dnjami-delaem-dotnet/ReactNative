@@ -14,19 +14,17 @@ const UserDescriptionField: React.FC<IUserDescriptionFieldProps> = ({
     title,
     value,
     children,
-}) => {
-    return (
-        <View style={styles.root}>
-            {selectedProfileOption === ProfileOptions.View ? (
-                <>
-                    <Text style={styles.descriptionSubtitle}>{title}</Text>
-                    <Text style={styles.descriptionTitle}>{value}</Text>
-                </>
-            ) : (
-                children
-            )}
-        </View>
-    );
-};
+}) => (
+    <View style={styles.root}>
+        {selectedProfileOption === ProfileOptions.View ? (
+            <>
+                <Text style={styles.descriptionSubtitle}>{title}</Text>
+                <Text style={styles.descriptionTitle}>{value}</Text>
+            </>
+        ) : (
+            children
+        )}
+    </View>
+);
 
 export default UserDescriptionField;
