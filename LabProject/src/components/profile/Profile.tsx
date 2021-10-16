@@ -1,38 +1,19 @@
 import React from 'react';
 import { View } from 'react-native';
 import { profileStyles as styles } from './styles';
-import UserDescription from './UserDescription';
-import ManagementPanel from './ManagementPanel';
-import { ProfileOptions } from '../../screens/ProfileScreen';
+import UserDescription, { IUserDescriptionProps } from './UserDescription';
+import ManagementPanel, { IManagementPanelProps } from './ManagementPanel';
 
 export interface IProfileProps {
-    userName: string;
-    userAvatarLink: string;
-    userDateOfBirth: Date;
-    selectedProfileOption: ProfileOptions;
-    onPressEditProfile: () => void;
-    onPressApplyUpdates: () => void;
-    onPressCancelChanges: () => void;
+    userDescriptionProps: IUserDescriptionProps;
+    managementPanelProps: IManagementPanelProps;
 }
 
-const Profile: React.FC<IProfileProps> = ({
-    userName,
-    userAvatarLink,
-    userDateOfBirth,
-    selectedProfileOption,
-    onPressEditProfile,
-    onPressApplyUpdates,
-    onPressCancelChanges,
-}) => {
+const Profile: React.FC<IProfileProps> = ({ userDescriptionProps, managementPanelProps }) => {
     return (
         <View style={styles.root}>
-            <UserDescription userName={userName} userDateOfBirth={userDateOfBirth} userAvatarLink={userAvatarLink} />
-            <ManagementPanel
-                selectedProfileOption={selectedProfileOption}
-                onPressApplyUpdates={onPressApplyUpdates}
-                onPressEditProfile={onPressEditProfile}
-                onPressCancelChanges={onPressCancelChanges}
-            />
+            <UserDescription {...userDescriptionProps} />
+            <ManagementPanel {...managementPanelProps} />
         </View>
     );
 };

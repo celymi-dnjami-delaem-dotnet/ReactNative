@@ -21,7 +21,10 @@ export const userDescriptionStyles = StyleSheet.create({
         height: 150,
         borderRadius: 75,
     },
-    userDescriptionContainer: {
+});
+
+export const userDescriptionFieldStyles = StyleSheet.create({
+    root: {
         display: 'flex',
         width: '100%',
         alignItems: 'center',
