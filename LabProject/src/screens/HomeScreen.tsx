@@ -5,7 +5,7 @@ import { getUserName } from '../selectors/authSelectors';
 import Home, { IHomeProps } from '../components/home/Home';
 import Routes from '../constants/routes';
 import { IGoodnessCardProps } from '../components/home/GoodnessCard';
-import { ICardRowProps } from '../components/common/card-row/CardRow';
+import { accountOverviewScreens } from '../constants/accounts';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
@@ -16,28 +16,6 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
         // @ts-ignore
         navigation.navigate(route);
     };
-
-    const accountOverviewScreens: ICardRowProps[] = [
-        {
-            routeName: Routes.checking,
-            leftTitle: Routes.checking,
-            leftSubtitle: 'Main Account',
-            amount: 1500.2,
-        },
-        {
-            routeName: Routes.saving,
-            leftTitle: Routes.saving,
-            leftSubtitle: 'Buy a house',
-            amount: 5000.2,
-        },
-        {
-            routeName: Routes.cards,
-            leftTitle: 'Goodness',
-            leftSubtitle: 'Cash rewards',
-            amount: 500.4,
-            leftTitleIcon: require('../../assets/icons/heart-icon.png'),
-        },
-    ];
 
     const goodnessCards: IGoodnessCardProps[] = [
         {
@@ -68,7 +46,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
 
     const homeProps: IHomeProps = {
         userName,
-        accountOverviewScreens,
+        accountOverviewScreens: accountOverviewScreens,
         goodnessCards,
         onHandleNavigation,
     };

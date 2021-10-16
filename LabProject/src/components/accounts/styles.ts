@@ -1,7 +1,25 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme/theme';
 
+export const accountsStyles = StyleSheet.create({
+    root: {
+        flex: 1,
+        margin: 20,
+    },
+    cardRow: {
+        marginTop: 15,
+        padding: 10,
+        backgroundColor: theme.colors?.white,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: `rgba(${theme.colors?.grey1Rgba},0.3)`,
+    },
+});
+
 export const accountsSummaryDetailsStyles = StyleSheet.create({
+    root: {
+        marginBottom: 15,
+    },
     cashContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -35,5 +53,14 @@ export const accountsSummaryDetailsStyles = StyleSheet.create({
     iconSubtitle: {
         fontSize: 18,
         color: theme.colors?.grey1,
+    },
+});
+
+export const cardTooltipStyles = StyleSheet.create({
+    root: {
+        marginTop: 10,
+        fontSize: 16,
+        textAlign: 'center',
+        color: theme.colors?.green,
     },
 });

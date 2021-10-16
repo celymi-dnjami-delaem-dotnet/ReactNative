@@ -1,16 +1,18 @@
 import React from 'react';
 import { Image, ImageSourcePropType, Text, View } from 'react-native';
 import { accountsSummaryDetailsStyles as styles } from './styles';
-import { formatPrice } from '../../utils';
+import { getTotalPrice } from '../../utils';
 
 interface IAccountButtonOption {
     iconLink: ImageSourcePropType;
     subtitle: string;
 }
 
-export interface IAccountsSummaryDetailsProps {}
+export interface IAccountsSummaryDetailsProps {
+    prices: number[];
+}
 
-const AccountsSummaryDetails = ({}: IAccountsSummaryDetailsProps) => {
+const AccountsSummaryDetails: React.FC<IAccountsSummaryDetailsProps> = ({ prices }) => {
     const iconButtons: IAccountButtonOption[] = [
         {
             iconLink: require('../../../assets/icons/circle-button-send.png'),
@@ -27,9 +29,9 @@ const AccountsSummaryDetails = ({}: IAccountsSummaryDetailsProps) => {
     ];
 
     return (
-        <View>
+        <View style={styles.root}>
             <View style={styles.cashContainer}>
-                <Text style={styles.cashTitle}>{formatPrice(7800)}</Text>
+                <Text style={styles.cashTitle}>{getTotalPrice(prices)}</Text>
                 <Text style={styles.cashSubtitle}>Total Available Cash</Text>
             </View>
             <View style={styles.buttonsManagementContainer}>

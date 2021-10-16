@@ -11,10 +11,11 @@ export interface ICardRowProps {
     customRootStyle?: StyleProp<ViewStyle>;
     leftTitleIcon?: ImageSourcePropType;
     rightTitleIcon?: ImageSourcePropType;
+    bottomNode?: React.ReactNode;
     onPress?: () => void;
 }
 
-const CardRow = ({
+const CardRow: React.FC<ICardRowProps> = ({
     leftSubtitle,
     customRootStyle,
     leftTitleIcon,
@@ -22,18 +23,22 @@ const CardRow = ({
     leftTitle,
     amount,
     onPress,
-}: ICardRowProps) => (
-    <TouchableOpacity style={[styles.root, customRootStyle]} onPress={onPress}>
-        <View style={styles.cardRowLeft}>
-            <Text style={styles.leftTitle}>
-                {leftTitle} {leftTitleIcon && <Image style={styles.letTitleIcon} source={leftTitleIcon} />}
-            </Text>
-            <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>
+    bottomNode,
+}) => (
+    <TouchableOpacity style={[styles.root, customRootStyle]} onPress={onPress} activeOpacity={1}>
+        <View style={styles.cardBody}>
+            <View style={styles.cardRowLeft}>
+                <Text style={styles.leftTitle}>
+                    {leftTitle} {leftTitleIcon && <Image style={styles.letTitleIcon} source={leftTitleIcon} />}
+                </Text>
+                <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>
+            </View>
+            <View style={styles.cardRowRight}>
+                <Text style={styles.rightTitle}>{formatPrice(amount)}</Text>
+                {rightTitleIcon && <Image style={styles.rightIcon} source={rightTitleIcon} />}
+            </View>
         </View>
-        <View style={styles.cardRowRight}>
-            <Text style={styles.rightTitle}>{formatPrice(amount)}</Text>
-            {rightTitleIcon && <Image style={styles.rightIcon} source={rightTitleIcon} />}
-        </View>
+        {bottomNode}
     </TouchableOpacity>
 );
 

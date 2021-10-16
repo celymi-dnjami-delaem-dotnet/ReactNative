@@ -7,6 +7,7 @@ interface ITheme extends Partial<FullTheme> {
 
 interface IAppColors extends Partial<Colors> {
     grey1Rgba: string;
+    green: string;
 }
 
 const theme: ITheme = {
@@ -17,6 +18,7 @@ const theme: ITheme = {
         grey0: '#a9a9a9',
         grey1: '#5d5c5c',
         grey1Rgba: '169, 169, 169',
+        green: '#18b018',
     },
 };
 

@@ -5,10 +5,14 @@ const styles = StyleSheet.create({
     root: {
         width: '100%',
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
         paddingHorizontal: 20,
         paddingVertical: 10,
+    },
+    cardBody: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
     cardRowWithBorder: {
         borderBottomWidth: 1,
