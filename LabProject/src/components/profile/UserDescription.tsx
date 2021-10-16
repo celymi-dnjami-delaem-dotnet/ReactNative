@@ -60,8 +60,8 @@ const UserDescription: React.FC<IUserDescriptionProps> = ({
                 date={new Date(newUserDateOfBirth)}
                 onDateChange={() => {}}
                 onConfirm={date => {
-                    onChangeProfileField(ProfileEditingFields.DateOfBirth, date);
                     onToggleDisplayDatePicker();
+                    onChangeProfileField(ProfileEditingFields.DateOfBirth, date);
                 }}
                 onCancel={onToggleDisplayDatePicker}
             />
