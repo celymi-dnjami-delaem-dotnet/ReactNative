@@ -28,6 +28,14 @@ export const savingsStyles = StyleSheet.create({
     },
     scoresContainer: {
         marginTop: 10,
+    },
+    searchPanelContainer: {
+        marginTop: 20,
+    },
+});
+
+export const savingsSummaryStyles = StyleSheet.create({
+    root: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',

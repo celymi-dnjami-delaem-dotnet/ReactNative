@@ -1,8 +1,10 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { savingsStyles as styles } from './styles';
 import TotalCash from '../total-cash/TotalCash';
 import { formatPrice, getTotalPrice } from '../../utils';
+import SavingsSummary from './SavingsSummary';
+import SearchPanel from '../search-panel/SearchPanel';
 
 export interface ISavingsProps {
     amount: number;
@@ -22,12 +24,13 @@ const Savings: React.FC<ISavingsProps> = ({ amount, totalInterest, totalPoints }
         </View>
         <View style={styles.body}>
             <View style={styles.scoresContainer}>
-                <Text style={styles.scoresTitle}>Total interest gained</Text>
-                <Text style={styles.scoresResult}>+{formatPrice(totalInterest)}</Text>
+                <SavingsSummary title="Total interest gained" value={formatPrice(totalInterest)} />
             </View>
             <View style={styles.scoresContainer}>
-                <Text style={styles.scoresTitle}>Goodness points gained</Text>
-                <Text style={styles.scoresResult}>+{totalPoints}</Text>
+                <SavingsSummary title="Goodness points gained" value={totalPoints} />
+            </View>
+            <View style={styles.searchPanelContainer}>
+                <SearchPanel />
             </View>
         </View>
     </View>
