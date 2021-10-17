@@ -15,6 +15,7 @@ export interface ICardRowProps {
     routeName?: string;
     textSize?: CardRowTextSize;
     highlightCardTextColor?: string;
+    leftSubtitleHighlightColor?: string;
     customRootStyle?: StyleProp<ViewStyle>;
     leftTitleIcon?: ImageSourcePropType;
     leftIcon?: ImageSourcePropType;
@@ -31,12 +32,13 @@ const CardRow: React.FC<ICardRowProps> = ({
     rightIcon,
     leftTitle,
     highlightCardTextColor,
+    leftSubtitleHighlightColor,
     amount,
     textSize,
     onPress,
     bottomNode,
 }) => {
-    const styles = getStyles(highlightCardTextColor, textSize);
+    const styles = getStyles(highlightCardTextColor, leftSubtitleHighlightColor, textSize);
 
     return (
         <TouchableOpacity style={[styles.root, customRootStyle]} onPress={onPress} activeOpacity={1}>

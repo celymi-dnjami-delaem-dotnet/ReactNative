@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import theme from '../../../theme/theme';
 import { CardRowTextSize } from './CardRow';
 
-const styles = (highlightCardTextColor?: string, textSize?: CardRowTextSize) =>
+const styles = (highlightCardTextColor?: string, leftSubtitleHighlightColor?: string, textSize?: CardRowTextSize) =>
     StyleSheet.create({
         root: {
             width: '100%',
@@ -43,7 +43,7 @@ const styles = (highlightCardTextColor?: string, textSize?: CardRowTextSize) =>
         },
         leftSubtitle: {
             marginTop: 5,
-            color: highlightCardTextColor ?? theme.colors?.grey0,
+            color: leftSubtitleHighlightColor ?? theme.colors?.grey0,
             fontSize: textSize === CardRowTextSize.Small ? 12 : 14,
         },
         cardRowRight: {
