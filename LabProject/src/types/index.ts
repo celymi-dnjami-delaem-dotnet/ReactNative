@@ -8,3 +8,8 @@ export interface IUserProfile {
     dateOfBirth?: Date;
     avatarLink: string;
 }
+
+export interface IBaseRouteParams {
+    pageName?: string;
+    title?: string;
+}

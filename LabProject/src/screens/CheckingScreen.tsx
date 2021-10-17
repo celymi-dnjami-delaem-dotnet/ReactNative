@@ -1,16 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Checking, { ICheckingProps } from '../components/checking/Checking';
+import { IBaseRouteParams } from '../types';
 
-const CheckingScreen = () => (
-    <View style={styles.root}>
-        <Text>Coming soon!</Text>
-    </View>
-);
+interface ICheckingRouteArgs extends IBaseRouteParams {
+    amount: number;
+}
 
-const styles = StyleSheet.create({
-    root: {
-        flex: 1,
-    },
-});
+export interface ICheckingScreenProps extends NativeStackScreenProps<Record<string, ICheckingRouteArgs>> {}
+
+const CheckingScreen = ({ route: { params } }: ICheckingScreenProps) => {
+    const checkProps: ICheckingProps = {
+        totalAmount: params.amount,
+    };
+
+    return <Checking {...checkProps} />;
+};
 
 export default CheckingScreen;
