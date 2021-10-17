@@ -29,7 +29,7 @@ const Accounts = ({ accountOverview, onHandleNavigation }: IAccountsProps) => {
                                   <CardRow
                                       {...x}
                                       onPress={onPress}
-                                      rightTitleIcon={require('../../../assets/icons/back-icon.png')}
+                                      rightIcon={require('../../../assets/icons/back-icon.png')}
                                   />
                               </View>
                           );

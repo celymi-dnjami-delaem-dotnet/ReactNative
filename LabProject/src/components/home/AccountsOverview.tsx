@@ -36,7 +36,7 @@ const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccou
                                       ? styles.cardRowWithoutBorder
                                       : styles.cardRowWithBorder
                               }
-                              rightTitleIcon={require('../../../assets/icons/back-icon.png')}
+                              rightIcon={require('../../../assets/icons/back-icon.png')}
                               onPress={onPress}
                           />
                       );

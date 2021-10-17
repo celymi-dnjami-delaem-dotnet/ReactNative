@@ -1,6 +1,7 @@
 import { ICardRowProps } from '../components/common/card-row/CardRow';
 import Routes from './routes';
 import { ICardRowListProps } from '../types';
+import theme from '../theme/theme';
 
 export const accountOverviewScreens: ICardRowProps[] = [
     {
@@ -42,6 +43,8 @@ export const checkingOptions: ICardRowListProps[] = [
                 leftTitle: 'Facebook inc.',
                 leftSubtitle: 'Pay day! | Yay!',
                 amount: 1200.5,
+                highlightCardTextColor: theme.colors?.green,
+                leftIcon: require('../../assets/icons/confetti-icon.png'),
             },
             {
                 leftTitle: 'Lencrafters',
@@ -57,6 +60,7 @@ export const checkingOptions: ICardRowListProps[] = [
                 leftTitle: 'Savings transfer',
                 leftSubtitle: 'Buy a house',
                 amount: 10000,
+                highlightCardTextColor: theme.colors?.green,
             },
             {
                 leftTitle: 'Starbucks',
