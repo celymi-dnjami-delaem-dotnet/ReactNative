@@ -4,10 +4,10 @@ import { formatPrice } from '../../../utils';
 import styles from './styles';
 
 export interface ICardRowProps {
-    routeName: string;
     leftTitle: string;
     leftSubtitle: string;
     amount: number;
+    routeName?: string;
     customRootStyle?: StyleProp<ViewStyle>;
     leftTitleIcon?: ImageSourcePropType;
     rightTitleIcon?: ImageSourcePropType;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Accounts, { IAccountsProps } from '../components/accounts/Accounts';
-import { accountOverviewScreens } from '../constants/accounts';
+import { accountOverviewScreens } from '../constants/card-row';
 import Routes from '../constants/routes';
 import CardTooltip from '../components/accounts/CardTooltip';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

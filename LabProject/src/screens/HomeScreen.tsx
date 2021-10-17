@@ -5,7 +5,7 @@ import { getUserName } from '../selectors/authSelectors';
 import Home, { IHomeProps } from '../components/home/Home';
 import Routes from '../constants/routes';
 import { IGoodnessCardProps } from '../components/home/GoodnessCard';
-import { accountOverviewScreens } from '../constants/accounts';
+import { accountOverviewScreens } from '../constants/card-row';
 import { IBaseRouteParams } from '../types';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}

@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     },
     rightTitle: {
         fontSize: 24,
-        marginRight: 10,
     },
     rightIcon: {
+        marginLeft: 10,
         width: 15,
         height: 15,
         tintColor: theme.colors?.primary,
