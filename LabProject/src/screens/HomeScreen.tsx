@@ -6,6 +6,7 @@ import Home, { IHomeProps } from '../components/home/Home';
 import Routes from '../constants/routes';
 import { IGoodnessCardProps } from '../components/home/GoodnessCard';
 import { accountOverviewScreens } from '../constants/accounts';
+import { IBaseRouteParams } from '../types';
 
 export interface IHomeScreenProps extends NativeStackScreenProps<Record<string, never>> {}
 
@@ -13,8 +14,17 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
     const userName: string = useSelector(getUserName);
 
     const onHandleNavigation = (route: keyof typeof Routes): void => {
-        // @ts-ignore
-        navigation.navigate(route);
+        const navigationScreen = accountOverviewScreens.find(x => x.routeName === route);
+
+        navigation.navigate({
+            name: route,
+            // @ts-ignore
+            params: {
+                amount: navigationScreen?.amount,
+                title: navigationScreen?.leftSubtitle,
+                pageName: navigationScreen?.routeName,
+            } as IBaseRouteParams,
+        });
     };
 
     const goodnessCards: IGoodnessCardProps[] = [

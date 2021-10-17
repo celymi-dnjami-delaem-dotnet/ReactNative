@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     cardRowWithBorder: {
         borderBottomWidth: 1,
-        borderBottomColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
+        borderBottomColor: theme.colors.grey1Rgba,
     },
     cardRowWithoutBorder: {
         borderBottomWidth: undefined,

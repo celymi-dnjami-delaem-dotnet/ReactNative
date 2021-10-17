@@ -32,7 +32,7 @@ const AccountsSummaryDetails: React.FC<IAccountsSummaryDetailsProps> = ({ prices
     return (
         <View style={styles.root}>
             <View style={styles.cashContainer}>
-                <TotalCash amount={getTotalPrice(prices)} titleFontSize={38} subTitleFontSize={20} />
+                <TotalCash amount={getTotalPrice(...prices)} titleFontSize={38} subTitleFontSize={20} />
             </View>
             <View style={styles.buttonsManagementContainer}>
                 {iconButtons.map(({ iconLink, subtitle }, index) => (
