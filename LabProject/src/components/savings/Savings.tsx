@@ -6,7 +6,7 @@ import { formatPrice, getTotalPrice } from '../../utils';
 import SavingsSummary from './SavingsSummary';
 import SearchPanel from '../search-panel/SearchPanel';
 import { ISavingsCardRowProps } from '../../types';
-import CardRow from '../common/card-row/CardRow';
+import CardRow, { CardRowTextSize } from '../common/card-row/CardRow';
 
 export interface ISavingsProps {
     amount: number;
@@ -29,6 +29,7 @@ const Savings: React.FC<ISavingsProps> = ({ amount, totalInterest, totalPoints, 
                     customRootStyle={[styles.cardRow, styles.firstCardRow]}
                     leftTitle={`End of balance - ${date}`}
                     amount={price}
+                    textSize={CardRowTextSize.Small}
                 />
             </View>
         )}
