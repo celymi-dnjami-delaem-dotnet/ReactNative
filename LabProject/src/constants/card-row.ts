@@ -1,6 +1,6 @@
 import { ICardRowProps } from '../components/common/card-row/CardRow';
 import Routes from './routes';
-import { ICardRowListProps } from '../types';
+import { ICardRowListProps, ISavingsCardRowProps } from '../types';
 import theme from '../theme/theme';
 
 export const accountOverviewScreens: ICardRowProps[] = [
@@ -76,6 +76,41 @@ export const checkingOptions: ICardRowListProps[] = [
                 leftTitle: 'Lencrafters',
                 leftSubtitle: 'Paramus NJ | Debit card',
                 amount: 320.73,
+            },
+        ],
+    },
+];
+
+export const savingsConstants: ISavingsCardRowProps[] = [
+    {
+        title: {
+            date: new Date().toLocaleDateString(),
+            price: 5000,
+        },
+        data: [
+            {
+                leftTitle: 'Deposit',
+                leftSubtitle: new Date().toLocaleDateString(),
+                amount: 2000,
+                highlightCardTextColor: theme.colors?.green,
+            },
+            {
+                leftTitle: 'Deposit',
+                leftSubtitle: new Date().toLocaleDateString(),
+                amount: 2000,
+                highlightCardTextColor: theme.colors?.green,
+            },
+            {
+                leftTitle: 'Wire Transfer',
+                leftSubtitle: new Date().toLocaleDateString(),
+                amount: 200.5,
+                highlightCardTextColor: theme.colors?.green,
+            },
+            {
+                leftTitle: 'Transfer',
+                leftSubtitle: new Date().toLocaleDateString(),
+                amount: 800.65,
+                highlightCardTextColor: theme.colors?.green,
             },
         ],
     },

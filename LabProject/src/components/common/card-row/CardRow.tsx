@@ -5,8 +5,8 @@ import getStyles from './styles';
 
 export interface ICardRowProps {
     leftTitle: string;
-    leftSubtitle: string;
     amount: number;
+    leftSubtitle?: string;
     routeName?: string;
     highlightCardTextColor?: string;
     customRootStyle?: StyleProp<ViewStyle>;
@@ -41,7 +41,7 @@ const CardRow: React.FC<ICardRowProps> = ({
                         <Text style={styles.leftTitle}>
                             {leftTitle} {leftTitleIcon && <Image style={styles.letTitleIcon} source={leftTitleIcon} />}
                         </Text>
-                        <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>
+                        {leftSubtitle && <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>}
                     </View>
                 </View>
 

@@ -32,6 +32,28 @@ export const savingsStyles = StyleSheet.create({
     searchPanelContainer: {
         marginTop: 20,
     },
+    cardRowContainer: {
+        marginHorizontal: 20,
+    },
+    cardRow: {
+        backgroundColor: theme.colors?.white,
+        borderBottomWidth: 1,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
+        borderLeftColor: theme.colors?.grey1Rgba,
+        borderRightColor: theme.colors?.grey1Rgba,
+        borderBottomColor: theme.colors?.grey1Rgba,
+    },
+    firstCardRow: {
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderTopWidth: 1,
+        borderTopColor: theme.colors?.grey1Rgba,
+    },
+    endCardRow: {
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+    },
 });
 
 export const savingsSummaryStyles = StyleSheet.create({

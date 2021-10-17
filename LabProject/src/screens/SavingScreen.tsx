@@ -2,6 +2,7 @@ import React from 'react';
 import Savings, { ISavingsProps } from '../components/savings/Savings';
 import { IBaseRouteParams } from '../types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { savingsConstants } from '../constants/card-row';
 
 interface ISavingScreenRouteParams extends IBaseRouteParams {
     amount: number;
@@ -17,6 +18,7 @@ const SavingScreen: React.FC<ISavingScreenProps> = ({ route: { params } }) => {
         amount: params.amount,
         totalInterest: fakeTotalInterest,
         totalPoints: fakeTotalPoints,
+        savingsHistoryItems: savingsConstants,
     };
 
     return <Savings {...savingsProps} />;
