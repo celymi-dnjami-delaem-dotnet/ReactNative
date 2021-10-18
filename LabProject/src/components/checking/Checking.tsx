@@ -2,10 +2,10 @@ import React from 'react';
 import { SectionList, StyleProp, Text, View, ViewStyle } from 'react-native';
 import TotalCash from '../total-cash/TotalCash';
 import { getTotalPrice } from '../../utils';
-import { checkingStyles as styles } from './styles';
-import SearchPanel from './SearchPanel';
+import styles from './styles';
 import { ICardRowListProps } from '../../types';
 import CardRow from '../common/card-row/CardRow';
+import SearchPanel from '../search-panel/SearchPanel';
 
 export interface ICheckingProps {
     totalAmount: number;

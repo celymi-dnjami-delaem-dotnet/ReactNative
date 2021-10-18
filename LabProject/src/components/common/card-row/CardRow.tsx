@@ -3,12 +3,19 @@ import { Image, ImageSourcePropType, StyleProp, Text, TouchableOpacity, View, Vi
 import { formatPrice } from '../../../utils';
 import getStyles from './styles';
 
+export enum CardRowTextSize {
+    Small = 'small',
+    Normal = 'normal',
+}
+
 export interface ICardRowProps {
     leftTitle: string;
-    leftSubtitle: string;
     amount: number;
+    leftSubtitle?: string;
     routeName?: string;
+    textSize?: CardRowTextSize;
     highlightCardTextColor?: string;
+    leftSubtitleHighlightColor?: string;
     customRootStyle?: StyleProp<ViewStyle>;
     leftTitleIcon?: ImageSourcePropType;
     leftIcon?: ImageSourcePropType;
@@ -25,11 +32,13 @@ const CardRow: React.FC<ICardRowProps> = ({
     rightIcon,
     leftTitle,
     highlightCardTextColor,
+    leftSubtitleHighlightColor,
     amount,
+    textSize,
     onPress,
     bottomNode,
 }) => {
-    const styles = getStyles(highlightCardTextColor);
+    const styles = getStyles(highlightCardTextColor, leftSubtitleHighlightColor, textSize);
 
     return (
         <TouchableOpacity style={[styles.root, customRootStyle]} onPress={onPress} activeOpacity={1}>
@@ -41,7 +50,7 @@ const CardRow: React.FC<ICardRowProps> = ({
                         <Text style={styles.leftTitle}>
                             {leftTitle} {leftTitleIcon && <Image style={styles.letTitleIcon} source={leftTitleIcon} />}
                         </Text>
-                        <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>
+                        {leftSubtitle && <Text style={styles.leftSubtitle}>{leftSubtitle}</Text>}
                     </View>
                 </View>
 

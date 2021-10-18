@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { searchPanelStyles as styles } from './styles';
+import styles from './styles';
 import Button, { ButtonColor, ButtonType } from '../common/button/Button';
 import Input, { InputType } from '../common/input/Input';
 

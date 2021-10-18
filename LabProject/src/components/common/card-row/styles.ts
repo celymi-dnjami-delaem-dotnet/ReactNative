@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../../theme/theme';
+import { CardRowTextSize } from './CardRow';
 
-const styles = (highlightCardTextColor?: string) =>
+const styles = (highlightCardTextColor?: string, leftSubtitleHighlightColor?: string, textSize?: CardRowTextSize) =>
     StyleSheet.create({
         root: {
             width: '100%',
@@ -32,7 +33,7 @@ const styles = (highlightCardTextColor?: string) =>
             flexDirection: 'column',
         },
         leftTitle: {
-            fontSize: 18,
+            fontSize: textSize === CardRowTextSize.Small ? 14 : 18,
             color: highlightCardTextColor ?? theme.colors?.black,
         },
         letTitleIcon: {
@@ -42,8 +43,8 @@ const styles = (highlightCardTextColor?: string) =>
         },
         leftSubtitle: {
             marginTop: 5,
-            color: highlightCardTextColor ?? theme.colors?.grey0,
-            fontSize: 14,
+            color: leftSubtitleHighlightColor ?? theme.colors?.grey0,
+            fontSize: textSize === CardRowTextSize.Small ? 12 : 14,
         },
         cardRowRight: {
             display: 'flex',
@@ -51,7 +52,7 @@ const styles = (highlightCardTextColor?: string) =>
             alignItems: 'center',
         },
         rightTitle: {
-            fontSize: 24,
+            fontSize: textSize === CardRowTextSize.Small ? 18 : 24,
             color: highlightCardTextColor ?? theme.colors?.black,
         },
         leftIcon: {

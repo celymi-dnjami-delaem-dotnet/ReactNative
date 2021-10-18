@@ -16,7 +16,17 @@ export interface IBaseRouteParams {
     title?: string;
 }
 
-export interface ICardRowListProps {
-    title: string;
+interface IBaseCardRowProps {
     data: ICardRowProps[];
+}
+
+export interface ICardRowListProps extends IBaseCardRowProps {
+    title: string;
+}
+
+export interface ISavingsCardRowProps extends IBaseCardRowProps {
+    title: {
+        date: string;
+        price: number;
+    };
 }

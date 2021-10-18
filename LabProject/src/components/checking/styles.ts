@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../theme/theme';
 
-export const checkingStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     root: {
         flex: 1,
         margin: 20,
@@ -42,17 +42,4 @@ export const checkingStyles = StyleSheet.create({
     },
 });
 
-export const searchPanelStyles = StyleSheet.create({
-    root: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    inputContainer: {
-        flex: 2,
-    },
-    buttonContainer: {
-        flex: 1,
-        marginLeft: 15,
-    },
-});
+export default styles;
