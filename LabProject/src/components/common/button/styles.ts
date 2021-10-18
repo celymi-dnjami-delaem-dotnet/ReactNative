@@ -16,7 +16,11 @@ const styles = (borderRadius?: number, height?: number, fontSize?: number) =>
             fontWeight: '600',
         },
         primary: {
+            color: theme.colors?.white,
             backgroundColor: theme?.colors?.primary,
+        },
+        outline: {
+            backgroundColor: undefined,
         },
     });
 

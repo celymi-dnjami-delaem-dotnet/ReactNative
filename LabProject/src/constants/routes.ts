@@ -7,7 +7,9 @@ const Routes = {
     payments: 'Payments',
     cards: 'Cards',
     checking: 'Checking',
-    saving: 'Saving',
+    saving: 'Savings',
+    profile: 'Profile',
+    goodness: 'Goodness',
 };
 
 export default Routes;

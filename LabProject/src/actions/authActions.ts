@@ -1,10 +1,12 @@
-import { IBaseAction } from '../types';
+import { IBaseAction, IUserProfile } from '../types';
 
 export const AuthActions = {
     SIGN_IN_REQUEST: 'auth/signInRequest',
     SIGN_IN_SUCCESS: 'auth/signInSuccess',
     SIGN_IN_FAILURE: 'auth/signInFailure',
     SIGN_OUT: 'auth/signOut',
+    UPDATE_PROFILE_REQUEST: 'auth/updateProfileRequest',
+    UPDATE_PROFILE_SUCCESS: 'auth/updateProfileSuccess',
 };
 
 /*
@@ -20,8 +22,7 @@ export interface ISignInRequest extends IBaseAction {
 
 export interface ISignInSuccess extends IBaseAction {
     payload: {
-        email: string;
-        userName: string;
+        profile: IUserProfile;
         jwt: string;
     };
 }
@@ -31,6 +32,20 @@ export interface ISignInFailure extends IBaseAction {
 }
 
 export interface ISignOut extends IBaseAction {}
+
+export interface IUpdateProfileRequest extends IBaseAction {
+    payload: {
+        userName: string;
+        dateOfBirth: Date;
+    };
+}
+
+export interface IUpdateProfileSuccess extends IBaseAction {
+    payload: {
+        userName: string;
+        dateOfBirth: Date;
+    };
+}
 
 /*
     Actions
@@ -44,11 +59,10 @@ export const signInRequest = (email: string, password: string): ISignInRequest =
     },
 });
 
-export const signInSuccess = (email: string, userName: string, jwt: string): ISignInSuccess => ({
+export const signInSuccess = (profile: IUserProfile, jwt: string): ISignInSuccess => ({
     type: AuthActions.SIGN_IN_SUCCESS,
     payload: {
-        email,
-        userName,
+        profile,
         jwt,
     },
 });
@@ -59,3 +73,19 @@ export const signInFailure = (error: Error): ISignInFailure => ({
 });
 
 export const signOut = (): ISignOut => ({ type: AuthActions.SIGN_OUT });
+
+export const updateUserProfileRequest = (userName: string, dateOfBirth: Date): IUpdateProfileRequest => ({
+    type: AuthActions.UPDATE_PROFILE_REQUEST,
+    payload: {
+        userName,
+        dateOfBirth,
+    },
+});
+
+export const updateUserProfileSuccess = (userName: string, dateOfBirth: Date): IUpdateProfileSuccess => ({
+    type: AuthActions.UPDATE_PROFILE_SUCCESS,
+    payload: {
+        userName,
+        dateOfBirth,
+    },
+});

@@ -19,7 +19,7 @@ const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodness
         <FlatList
             style={styles.root}
             ListHeaderComponent={
-                <>
+                <React.Fragment>
                     <View style={styles.greetingContainer}>
                         <Text style={styles.greetingMessage}>{getUserGreetingMessage(userName)}</Text>
                     </View>
@@ -29,7 +29,7 @@ const Home: React.FC<IHomeProps> = ({ userName, accountOverviewScreens, goodness
                             accountOverviewScreens={accountOverviewScreens}
                         />
                     </View>
-                </>
+                </React.Fragment>
             }
             data={goodnessCards}
             renderItem={({ item }: ListRenderItemInfo<IGoodnessCardProps>) => (

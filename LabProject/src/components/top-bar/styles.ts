@@ -14,8 +14,9 @@ export const headerLeftStyles = StyleSheet.create({
 
 export const headerRightStyles = StyleSheet.create({
     icon: {
-        color: theme.colors?.white,
-        fontSize: 32,
+        width: 30,
+        height: 30,
+        borderRadius: 15,
     },
 });
 

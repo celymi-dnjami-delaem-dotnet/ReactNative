@@ -1,10 +1,14 @@
 import { AuthState } from '../store/state';
-import { AuthActions, ISignInSuccess } from '../actions/authActions';
+import { AuthActions, ISignInSuccess, IUpdateProfileSuccess } from '../actions/authActions';
 import { SignInState } from '../constants';
 
 const initialState: AuthState = {
-    email: '',
-    userName: '',
+    profile: {
+        avatarLink: '',
+        email: '',
+        userName: '',
+        dateOfBirth: undefined,
+    },
     jwt: '',
     isLoading: false,
     state: SignInState.NotAttempted,
@@ -13,27 +17,30 @@ const initialState: AuthState = {
 export default function authReducer(state = initialState, action: any) {
     switch (action.type) {
         case AuthActions.SIGN_IN_REQUEST:
-            return handleSignInRequest(state);
+            return handleSetLoadingStatus(state);
         case AuthActions.SIGN_IN_SUCCESS:
             return handleSignInSuccess(state, action);
         case AuthActions.SIGN_IN_FAILURE:
             return handleSignInFailure(state);
         case AuthActions.SIGN_OUT:
             return handleSignOut();
+        case AuthActions.UPDATE_PROFILE_REQUEST:
+            return handleSetLoadingStatus(state);
+        case AuthActions.UPDATE_PROFILE_SUCCESS:
+            return handleUpdateUserProfileSuccess(state, action);
         default:
             return state;
     }
 }
 
-const handleSignInRequest = (state: AuthState): AuthState => ({
+const handleSetLoadingStatus = (state: AuthState): AuthState => ({
     ...state,
     isLoading: true,
 });
 
-const handleSignInSuccess = (state: AuthState, { payload: { email, userName, jwt } }: ISignInSuccess): AuthState => ({
+const handleSignInSuccess = (state: AuthState, { payload: { profile, jwt } }: ISignInSuccess): AuthState => ({
     ...state,
-    email,
-    userName,
+    profile,
     jwt,
     isLoading: false,
     state: SignInState.SuccessfulAttempt,
@@ -46,3 +53,16 @@ const handleSignInFailure = (state: AuthState): AuthState => ({
 });
 
 const handleSignOut = (): AuthState => initialState;
+
+const handleUpdateUserProfileSuccess = (
+    state: AuthState,
+    { payload: { userName, dateOfBirth } }: IUpdateProfileSuccess,
+): AuthState => ({
+    ...state,
+    profile: {
+        ...state.profile,
+        userName,
+        dateOfBirth,
+    },
+    isLoading: false,
+});

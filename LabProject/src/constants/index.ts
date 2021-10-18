@@ -3,3 +3,5 @@ export enum SignInState {
     SuccessfulAttempt = 'SuccessfulAttempt',
     FailedAttempt = 'FailedAttempt',
 }
+
+export const apiRequestDelayTime: number = 1000;

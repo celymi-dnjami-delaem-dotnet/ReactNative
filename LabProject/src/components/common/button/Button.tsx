@@ -2,6 +2,7 @@ import React from 'react';
 import { Button as RNEButton } from 'react-native-elements';
 import { IconNode } from 'react-native-elements/dist/icons/Icon';
 import styles from './styles';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export enum ButtonType {
     Solid = 'solid',
@@ -22,32 +23,34 @@ export interface IButtonProps {
     title: string;
     onPress: () => void;
     color: ButtonColor;
-    type?: ButtonType;
-    disabled?: boolean;
-    isLoading?: boolean;
-    borderRadius?: number;
-    height?: number;
-    iconPosition?: IconPosition;
-    icon?: IconNode;
-    fontSize?: number;
+    type: ButtonType;
+    disabled: boolean;
+    isLoading: boolean;
+    borderRadius: number;
+    height: number;
+    iconPosition: IconPosition;
+    icon: IconNode;
+    fontSize: number;
+    customStyle: StyleProp<ViewStyle>;
 }
 
-const Button: React.FC<IButtonProps> = ({
+const Button: React.FC<Partial<IButtonProps>> = ({
     title,
     disabled,
-    type,
+    type = ButtonType.Solid,
     height,
-    color,
+    color = ButtonColor.Primary,
     borderRadius,
     isLoading,
     iconPosition,
     icon,
     fontSize,
     onPress,
+    customStyle,
 }) => (
     <RNEButton
         containerStyle={styles().container}
-        buttonStyle={[styles(borderRadius, height).button, [styles()[color]]]}
+        buttonStyle={[styles(borderRadius, height).button, [styles()[color]], [styles()[type]], customStyle]}
         titleStyle={styles(undefined, undefined, fontSize).title}
         iconPosition={iconPosition}
         icon={icon}
