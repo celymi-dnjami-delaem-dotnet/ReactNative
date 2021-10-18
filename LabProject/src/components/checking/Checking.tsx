@@ -25,7 +25,7 @@ const getCardRowStyles = (index: number, data: readonly unknown[]) => {
     return cardStyles;
 };
 
-const Checking = ({ totalAmount, checkingOptions }: ICheckingProps) => {
+const Checking: React.FC<ICheckingProps> = ({ totalAmount, checkingOptions }) => {
     return (
         <SectionList
             style={styles.root}
