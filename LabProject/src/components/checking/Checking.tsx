@@ -12,6 +12,19 @@ export interface ICheckingProps {
     checkingOptions: ICardRowListProps[];
 }
 
+const getCardRowStyles = (index: number, data: readonly unknown[]) => {
+    const cardStyles: StyleProp<ViewStyle> = [styles.cardRow];
+
+    if (index === 0) {
+        cardStyles.push(styles.firstCardRow);
+    }
+    if (index === data.length - 1) {
+        cardStyles.push(styles.endCardRow);
+    }
+
+    return cardStyles;
+};
+
 const Checking = ({ totalAmount, checkingOptions }: ICheckingProps) => {
     return (
         <SectionList
@@ -28,18 +41,9 @@ const Checking = ({ totalAmount, checkingOptions }: ICheckingProps) => {
             )}
             sections={checkingOptions}
             renderSectionHeader={({ section: { title } }) => <Text style={styles.sectionHeader}>{title}</Text>}
-            renderItem={({ item, index, section: { data } }) => {
-                const cardStyles: StyleProp<ViewStyle> = [styles.cardRow];
-
-                if (index === 0) {
-                    cardStyles.push(styles.firstCardRow);
-                }
-                if (index === data.length - 1) {
-                    cardStyles.push(styles.endCardRow);
-                }
-
-                return <CardRow {...item} customRootStyle={cardStyles} />;
-            }}
+            renderItem={({ item, index, section: { data } }) => (
+                <CardRow {...item} customRootStyle={getCardRowStyles(index, data)} />
+            )}
         />
     );
 };
