@@ -4,6 +4,7 @@ import { getTotalPrice } from '../../utils';
 import CardRow, { ICardRowProps } from '../common/card-row/CardRow';
 import Routes from '../../constants/routes';
 import { accountsOverviewStyles as styles } from './styles';
+import TotalCash from '../total-cash/TotalCash';
 
 export interface IAccountsOverviewProps {
     onHandleNavigation: (route: keyof typeof Routes) => void;
@@ -14,8 +15,11 @@ const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccou
     return (
         <View style={styles.root}>
             <Text style={styles.mainHeaderTitle}>Accounts Overview</Text>
-            <Text style={styles.priceTitle}>{getTotalPrice(accountOverviewScreens?.map(x => x.amount))}</Text>
-            <Text style={styles.priceHelperTitle}>Total available cash</Text>
+            <TotalCash
+                amount={getTotalPrice(...accountOverviewScreens?.map(x => x.amount))}
+                titleFontSize={30}
+                subTitleFontSize={18}
+            />
 
             {accountOverviewScreens && accountOverviewScreens.length
                 ? accountOverviewScreens.map((x, index) => {
@@ -32,7 +36,7 @@ const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccou
                                       ? styles.cardRowWithoutBorder
                                       : styles.cardRowWithBorder
                               }
-                              rightTitleIcon={require('../../../assets/icons/back-icon.png')}
+                              rightIcon={require('../../../assets/icons/back-icon.png')}
                               onPress={onPress}
                           />
                       );

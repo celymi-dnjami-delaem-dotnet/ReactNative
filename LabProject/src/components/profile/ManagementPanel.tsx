@@ -29,7 +29,7 @@ const ManagementPanel: React.FC<IManagementPanelProps> = ({
                 borderRadius={buttonRadius}
             />
         ) : (
-            <>
+            <React.Fragment>
                 <Button
                     isLoading={isLoading}
                     title="Apply Updates"
@@ -47,7 +47,7 @@ const ManagementPanel: React.FC<IManagementPanelProps> = ({
                     height={buttonHeight}
                     borderRadius={buttonRadius}
                 />
-            </>
+            </React.Fragment>
         )}
     </View>
 );

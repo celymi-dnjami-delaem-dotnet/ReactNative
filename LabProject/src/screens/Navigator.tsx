@@ -4,7 +4,7 @@ import SignIn from './SignInScreen';
 import MainScreen from './MainScreen';
 import HeaderLeft from '../components/top-bar/HeaderLeft';
 import HeaderRight from '../components/top-bar/HeaderRight';
-import HeaderTitle, { IHeaderTitleRouteArgs } from '../components/top-bar/HeaderTitle';
+import HeaderTitle from '../components/top-bar/HeaderTitle';
 import { Route } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
@@ -14,6 +14,7 @@ import { getJwt } from '../selectors/authSelectors';
 import SavingScreen from './SavingScreen';
 import CheckingScreen from './CheckingScreen';
 import ProfileScreen from './ProfileScreen';
+import { IBaseRouteParams } from '../types';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +36,7 @@ const Navigator = () => {
                         headerLeft: ({ canGoBack }) => <HeaderLeft canGoBack={canGoBack} {...navProps} />,
                         headerRight: () => <HeaderRight {...navProps} />,
                         headerTitle: () => (
-                            <HeaderTitle {...navProps} route={navProps.route as Route<string, IHeaderTitleRouteArgs>} />
+                            <HeaderTitle {...navProps} route={navProps.route as Route<string, IBaseRouteParams>} />
                         ),
                     })}
                 >
