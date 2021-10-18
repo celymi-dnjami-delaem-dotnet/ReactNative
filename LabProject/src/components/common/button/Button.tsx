@@ -23,23 +23,23 @@ export interface IButtonProps {
     title: string;
     onPress: () => void;
     color: ButtonColor;
-    type?: ButtonType;
-    disabled?: boolean;
-    isLoading?: boolean;
-    borderRadius?: number;
-    height?: number;
-    iconPosition?: IconPosition;
-    icon?: IconNode;
-    fontSize?: number;
-    customStyle?: StyleProp<ViewStyle>;
+    type: ButtonType;
+    disabled: boolean;
+    isLoading: boolean;
+    borderRadius: number;
+    height: number;
+    iconPosition: IconPosition;
+    icon: IconNode;
+    fontSize: number;
+    customStyle: StyleProp<ViewStyle>;
 }
 
-const Button: React.FC<IButtonProps> = ({
+const Button: React.FC<Partial<IButtonProps>> = ({
     title,
     disabled,
     type = ButtonType.Solid,
     height,
-    color,
+    color = ButtonColor.Primary,
     borderRadius,
     isLoading,
     iconPosition,

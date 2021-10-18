@@ -30,7 +30,7 @@ export const goodnessCardStyles = StyleSheet.create({
         backgroundColor: theme.colors?.white,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
+        borderColor: theme.colors.grey1Rgba,
     },
     header: {
         display: 'flex',
@@ -114,7 +114,7 @@ export const accountsOverviewStyles = StyleSheet.create({
         backgroundColor: theme.colors?.white,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
+        borderColor: theme.colors.grey1Rgba,
     },
     mainHeaderTitle: {
         fontSize: 22,
@@ -131,7 +131,7 @@ export const accountsOverviewStyles = StyleSheet.create({
     },
     cardRowWithBorder: {
         borderBottomWidth: 1,
-        borderBottomColor: `rgba(${theme.colors.grey1Rgba},0.3)`,
+        borderBottomColor: theme.colors.grey1Rgba,
     },
     cardRowWithoutBorder: {
         borderBottomWidth: undefined,

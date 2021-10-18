@@ -12,7 +12,7 @@ export const accountsStyles = StyleSheet.create({
         backgroundColor: theme.colors?.white,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: `rgba(${theme.colors?.grey1Rgba},0.3)`,
+        borderColor: theme.colors?.grey1Rgba,
     },
 });
 

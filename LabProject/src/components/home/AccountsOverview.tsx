@@ -16,7 +16,7 @@ const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccou
         <View style={styles.root}>
             <Text style={styles.mainHeaderTitle}>Accounts Overview</Text>
             <TotalCash
-                amount={getTotalPrice(accountOverviewScreens?.map(x => x.amount))}
+                amount={getTotalPrice(...accountOverviewScreens?.map(x => x.amount))}
                 titleFontSize={30}
                 subTitleFontSize={18}
             />
@@ -36,7 +36,7 @@ const AccountsOverview = ({ accountOverviewScreens, onHandleNavigation }: IAccou
                                       ? styles.cardRowWithoutBorder
                                       : styles.cardRowWithBorder
                               }
-                              rightTitleIcon={require('../../../assets/icons/back-icon.png')}
+                              rightIcon={require('../../../assets/icons/back-icon.png')}
                               onPress={onPress}
                           />
                       );

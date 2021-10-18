@@ -17,10 +17,10 @@ const UserDescriptionField: React.FC<IUserDescriptionFieldProps> = ({
 }) => (
     <View style={styles.root}>
         {selectedProfileOption === ProfileOptions.View ? (
-            <>
+            <React.Fragment>
                 <Text style={styles.descriptionSubtitle}>{title}</Text>
                 <Text style={styles.descriptionTitle}>{value}</Text>
-            </>
+            </React.Fragment>
         ) : (
             children
         )}

@@ -16,7 +16,7 @@ export const getUserGreetingMessage = (userName: string): string => {
 export const formatPrice = (price: number): string =>
     `$${price.toLocaleString('en-US', { maximumFractionDigits: 2, minimumFractionDigits: 2 })}`;
 
-export const getTotalPrice = (prices: number[]): string => {
+export const getTotalPrice = (...prices: number[]): string => {
     if (!prices || !prices.length) {
         return '';
     }
