@@ -43,7 +43,7 @@ const HomeScreen: React.FC<IHomeScreenProps> = ({ navigation }: IHomeScreenProps
         {
             isVideo: true,
             avatarLink: require('../../assets/icons/avatar-icon.png'),
-            graphLink: require('../../assets/videos/test-video.mp4'),
+            graphLink: 'https://res.cloudinary.com/djlynoeio/video/upload/v1567162826/samples/sea-turtle.mp4',
             title: 'Your Giving Impact',
             charityName: 'St Louis',
             time: 6,

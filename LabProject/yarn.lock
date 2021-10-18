@@ -5640,10 +5640,10 @@ react-native-vector-icons@^8.1.0:
     prop-types "^15.7.2"
     yargs "^16.1.1"
 
-react-native-video@^5.2.0-alpha1:
-  version "5.2.0-alpha1"
-  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-5.2.0-alpha1.tgz#990381bf2a053f8d3f20c98ff447a7d0cc61b851"
-  integrity sha512-UkvawdXCdInfvV/w8HMnjDnWDirSwEyOyWsY6IJbguZk9xc0chXKM010DwkdTFldY0bkWXEP2XHyEPh/AKwKcg==
+react-native-video@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-video/-/react-native-video-5.1.1.tgz#89a7989efeb8d404611c06154d1da227a745d7d8"
+  integrity sha512-zee8gRUrjPWRoZSEBiMebClqu1iAuCQNLjzqpmXFrRWEoJj7azM3BPqLQWJgsnfLiYUYGySeApC/G60THM5+tw==
   dependencies:
     keymirror "^0.1.1"
     prop-types "^15.7.2"
