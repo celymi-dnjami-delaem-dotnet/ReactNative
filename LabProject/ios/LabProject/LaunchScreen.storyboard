@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oC1-DE-EYr">
-                                <rect key="frame" x="60" y="300.5" width="255" height="66"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="SplashIcon" translatesAutoresizingMaskIntoConstraints="NO" id="oC1-DE-EYr">
+                                <rect key="frame" x="7" y="268" width="360" height="130"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -27,6 +27,8 @@
                             <constraint firstItem="oC1-DE-EYr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hsy-gB-D2O"/>
                             <constraint firstItem="oC1-DE-EYr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NdQ-8q-gKA"/>
                             <constraint firstItem="oC1-DE-EYr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="TDv-ch-Oe8"/>
+                            <constraint firstItem="oC1-DE-EYr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="fRo-oe-x1t"/>
+                            <constraint firstItem="oC1-DE-EYr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uzN-8J-gf8"/>
                         </constraints>
                     </view>
                 </viewController>
