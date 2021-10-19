@@ -11,7 +11,7 @@ export interface IGoodnessCardProps {
     charityName: string;
     time: number;
     isVideo: boolean;
-    graphLink: ImageSourcePropType;
+    graphLink: string | ImageSourcePropType;
     text: string;
     onPressShare: () => void;
 }
@@ -59,7 +59,7 @@ const GoodnessCard: React.FC<IGoodnessCardProps> = ({
                     <Video
                         resizeMode="cover"
                         style={styles.video}
-                        source={graphLink as number}
+                        source={{ uri: graphLink as string }}
                         paused={!expandView}
                         fullscreen={expandView}
                         repeat={true}
@@ -70,7 +70,7 @@ const GoodnessCard: React.FC<IGoodnessCardProps> = ({
                     </TouchableOpacity>
                 </TouchableOpacity>
             ) : (
-                <Image style={styles.image} source={graphLink} />
+                <Image style={styles.image} source={graphLink as ImageSourcePropType} />
             )}
 
             <View style={styles.body}>
