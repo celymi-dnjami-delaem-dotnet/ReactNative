@@ -14,7 +14,7 @@ const initialState: AuthState = {
     state: SignInState.NotAttempted,
 };
 
-export default function authReducer(state = initialState, action: any) {
+export default function authReducer(state = initialState, action) {
     switch (action.type) {
         case AuthActions.SIGN_IN_REQUEST:
             return handleSetLoadingStatus(state);
