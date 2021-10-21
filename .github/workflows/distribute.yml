@@ -44,6 +44,10 @@ jobs:
         env:
           FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
           
+      - name: Install project dependencies
+        working-directory: ./LabProject
+        run: npm install
+        
       - name: Distribute app with 🔥 App Distribution 🚀
         working-directory: ./LabProject/android
         run: |
