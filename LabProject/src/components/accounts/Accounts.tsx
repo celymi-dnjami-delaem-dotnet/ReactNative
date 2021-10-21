@@ -10,7 +10,7 @@ export interface IAccountsProps {
     onHandleNavigation: (route: keyof typeof Routes) => void;
 }
 
-const Accounts = ({ accountOverview, onHandleNavigation }: IAccountsProps) => {
+const Accounts: React.FC<IAccountsProps> = ({ accountOverview, onHandleNavigation }) => {
     const prices: number[] = accountOverview?.map(x => x.amount) ?? [];
 
     return (
