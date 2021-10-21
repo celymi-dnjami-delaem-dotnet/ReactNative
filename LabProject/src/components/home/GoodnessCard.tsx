@@ -29,12 +29,12 @@ const GoodnessCard: React.FC<IGoodnessCardProps> = ({
     const [expandView, setExpandVideo] = useState<boolean>(false);
     const [mutedVideo, setMutedVideo] = useState<boolean>(false);
 
-    const handleExpandVideo = () => {
+    const handleExpandVideo = (): void => {
         setMutedVideo(!mutedVideo);
         setExpandVideo(!expandView);
     };
 
-    const muteVideo = () => {
+    const muteVideo = (): void => {
         setMutedVideo(!mutedVideo);
     };
 
