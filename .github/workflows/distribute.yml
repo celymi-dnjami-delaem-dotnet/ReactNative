@@ -32,7 +32,6 @@ jobs:
       - name: Install bundle
         working-directory: ./LabProject/android
         run: |
-          cd ./LabProject/android
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
           
