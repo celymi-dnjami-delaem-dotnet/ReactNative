@@ -46,6 +46,6 @@ jobs:
           
       - name: Distribute app with 🔥 App Distribution 🚀
         working-directory: ./LabProject/android
-        run: bundle exec fastlane distribute
+        run: bundle exec fastlane deploy
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
