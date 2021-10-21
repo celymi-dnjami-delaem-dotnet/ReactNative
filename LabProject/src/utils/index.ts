@@ -22,7 +22,7 @@ export const getTotalPrice = (...prices: number[]): string => {
     }
 
     const startPrice: number = 0;
-    const totalPrice: number = prices.reduce((acc, x) => acc + x, startPrice);
+    const totalPrice: number = prices.reduce((acc: number, x: number) => acc + x, startPrice);
 
     return formatPrice(totalPrice);
 };
