@@ -21,7 +21,8 @@ export const getTotalPrice = (...prices: number[]): string => {
         return '';
     }
 
-    const totalPrice = prices.reduce((acc, x) => acc + x, 0);
+    const startPrice: number = 0;
+    const totalPrice: number = prices.reduce((acc: number, x: number) => acc + x, startPrice);
 
     return formatPrice(totalPrice);
 };
